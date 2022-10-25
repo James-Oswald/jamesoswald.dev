@@ -1,0 +1,4 @@
+baseURL = "http://jamesoswald.org/"
+languageCode = "en-us"
+title = "James Oswald"
+theme = 'lugo'

@@ -1,0 +1,1 @@
+cp ./jamesoswald.org.conf /etc/nginx/conf.d/jamesoswald.org.conf
