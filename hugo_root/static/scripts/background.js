@@ -22,14 +22,18 @@ function mouseMoveHandler(e){
 }
 content.addEventListener("mousemove", event => mouseMoveHandler(event));
 
-//Observe colorscheme changes
-let darkmode = document.body.classList.contains("colorscheme-dark")
-function colorschemeChangeHandler(mutationList, observer){
-    darkmode = -darkmode+1; //Flip darkmode to whatever its not
+let darkmode = +document.body.classList.contains("colorscheme-dark");
+console.log("initial setup " + darkmode);
+function colorschemeChangeHandler(mutations, observer){
+    darkmode = +document.body.classList.contains("colorscheme-dark");
 }
 const observer = new MutationObserver(colorschemeChangeHandler);
 observer.observe(document.body, {attributes: true, attributeFilter: ["class"]});
-
+document.onload = function(e){
+	//Observe colorscheme changes
+	darkmode = +document.body.classList.contains("colorscheme-dark");
+    console.log("Page loaded Darkmode:" + darkmode);
+}
 
 
 gl = canvas.getContext('webgl');
@@ -49,7 +53,7 @@ function createShader(sourceCode, type){
     return shader;
 }
 
-//This has to be global due to requestAnimationFrame not accepting params 
+//These have to be global due to window.requestAnimationFrame not accepting params
 const shader_program = gl.createProgram();      //The shader program
 const fullscreen_quad_vbo = gl.createBuffer();  //The fullscreen quad the shader is projected on
 let position_attribute = null;

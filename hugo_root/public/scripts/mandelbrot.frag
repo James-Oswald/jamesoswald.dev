@@ -38,13 +38,22 @@ float distort(float x){
     return 1.0/(70.0 * x + 4.0); 
 }
 
+float fisheye(float x){
+    const float a = 1.0; 
+    return (a * cos(4.0 * 3.141 * x) + a + 1.0);
+}
+
 //f(z+1) = z^2 + c
 vec3 iterateMandelbrot(vec2 coord, vec2 mousepos){
     float dist = distance(coord, mousepos);
+    if(dist < 0.25){
+        mat3 zoom = mat3(fisheye(dist), 0, 0, 0, fisheye(dist), 0, 0, 0, 1);
+        coord = (zoom * vec3(coord, 1)).xy;
+    }
     //if(dist < 0.1){
     //    return vec3(1.0, 0, 0);
     //}
-    coord = vec2(coord.x + distort(dist), coord.y + distort(dist));
+    //coord = vec2(coord.x + distort(dist), coord.y + distort(dist));
     vec2 z = vec2(0, 0);
     for(int i = 0; i < maxIterations; i++){
         z = cpow(z, 2.0) + coord;
@@ -70,7 +79,7 @@ void main() {
     mat3 scaleZoom = mat3(1.0/zoom, 0, 0, 0, 1.0/zoom, 0, 0, 0, 1);
     mat3 scaleBounds = mat3(3.5, 0, 0, 0, 2.0, 0, 0, 0, 1);                               //scale screen to 1, 1
     mat3 transCenter = mat3(1, 0, 0, 0, 1, 0, center.x, center.y, 1);
-    float angle = float(time)/10000.0;
+    float angle = float(time)/50000.0;
     mat3 rotTime = mat3(cos(angle), sin(angle), 0, -sin(angle), cos(angle), 0, 0, 0, 1);
     vec2 pos = vec3(rotTime * transCenter * scaleZoom * scaleBounds * scaleNorm * transOrigin * vec3(gl_FragCoord.xy,1)).xy;
     vec2 mousepos = vec3(scaleZoom * scaleBounds * scaleNorm * transOrigin * vec3(mouse.xy, 1)).xy;
