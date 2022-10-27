@@ -56,8 +56,22 @@ vec3 iterateMandelbrot(vec2 coord){
 }
 
 float fisheye(float x){
-    const float a = 1.0; 
+    const float a = 5.0; 
     return (a * cos(4.0 * 3.141 * x) + a + 1.0);
+}
+
+#define PI 3.1415926535897932384626433832795
+
+//https://www.desmos.com/calculator/n9vfe3g5jp
+float zoomlens(float dist, float radius){
+    float maxZoomLevel = 0.1;
+    float zoomLevel = maxZoomLevel * sin(time / 10000.0); //Smaller is bigger zoom
+    float waveOffset = 2.0/radius;
+    if(dist >= 1.0/waveOffset){
+        return ((1.0-zoomLevel)/2.0)*cos(waveOffset*PI*dist) + ((1.0+zoomLevel)/2.0);
+    }else{
+        return zoomLevel;
+    }
 }
 
 void main() {
@@ -80,14 +94,15 @@ void main() {
 
     float dist = distance(pos, mousepos); 
     mat3 scaleMouseZoom = mat3(1, 0, 0, 0, 1, 0, 0, 0, 1);
-    if(dist < 0.25){
-        scaleMouseZoom = mat3(fisheye(dist), 0, 0, 0, fisheye(dist), 0, 0, 0, 1);
+    float radius = 0.5;
+    if(dist < radius){
+        scaleMouseZoom = mat3(zoomlens(dist, radius), 0, 0, 0, zoomlens(dist, radius), 0, 0, 0, 1);
     }
 
     mat3 transMouse = mat3(1, 0, 0, 0, 1, 0, mousepos.x, mousepos.y, 1);
     mat3 untransMouse = mat3(1, 0, 0, 0, 1, 0, -mousepos.x, -mousepos.y, 1);
 
-    vec2 modifiedpos = (transCenter * untransMouse * scaleMouseZoom * transMouse * vec3(pos, 1)).xy;
+    vec2 modifiedpos = (transCenter * transMouse * scaleMouseZoom * untransMouse * vec3(pos, 1)).xy;
 
     gl_FragColor = vec4(iterateMandelbrot(modifiedpos), 1.0);
 }
