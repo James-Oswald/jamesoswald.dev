@@ -8,6 +8,12 @@
     <loc>http://jamesoswald.org/contact/</loc>
     <priority>0</priority>
   </url><url>
+    <loc>http://jamesoswald.org/profiles/</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>http://jamesoswald.org/publications/</loc>
+    <priority>0</priority>
+  </url><url>
     <loc>http://jamesoswald.org/authors/</loc>
   </url><url>
     <loc>http://jamesoswald.org/categories/</loc>

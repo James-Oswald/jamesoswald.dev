@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>jamesoswald</title>
+    <title>James Oswald</title>
     <link>http://jamesoswald.org/</link>
-    <description>Recent content on jamesoswald</description>
+    <description>Recent content on James Oswald</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language><atom:link href="http://jamesoswald.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -12,7 +12,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://jamesoswald.org/about/</guid>
-      <description>About Me Link to heading Hello, my name is James Oswald! I am PhD student at Rensselaer Polytechnic Institute and graduate researcher with the The Rensselaer Artificial Intelligence and Reasoning (RAIR) Laboratory, under Professor Selmer Bringsjord. My primary research interest is in Artificial Intelligence (AI), particularly Artificial General Intelligence (AGI), that is, how we can best create single AI agents that preforms well on general tasks. The rest of my research interests such as machine learning, modal logic, and cognitive architectures all stem from my interest in AGI design.</description>
+      <description>About Me Link to heading You can find my CV here (Updated 10/28/22).
+Hello, my name is James Oswald! I am PhD student at Rensselaer Polytechnic Institute and graduate researcher with the The Rensselaer Artificial Intelligence and Reasoning (RAIR) Laboratory, under Professor Selmer Bringsjord. My primary research interest is in Artificial Intelligence (AI), particularly Artificial General Intelligence (AGI), that is, how we can best create single AI agents that preforms well on general tasks.</description>
     </item>
     
     <item>
@@ -25,6 +26,24 @@
 Discord: TenebrisLux#8358
 Personal Email: jamesoswald111@gmail.com
 School Email: oswalj@rpi.edu</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://jamesoswald.org/profiles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://jamesoswald.org/profiles/</guid>
+      <description> Link to heading Socials Link to heading Github LinkedIn Twitter Instagram Research Profiles Link to heading ORCID Google Scholar Semantic Scholar ResearchGate </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://jamesoswald.org/publications/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://jamesoswald.org/publications/</guid>
+      <description></description>
     </item>
     
   </channel>

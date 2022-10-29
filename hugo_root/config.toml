@@ -1,5 +1,5 @@
 baseURL = "http://jamesoswald.org"
-title = "jamesoswald"
+title = "James Oswald"
 theme = "hugo-coder"
 languageCode = "en"
 defaultContentLanguage = "en"
@@ -47,56 +47,6 @@ series = "series"
 tag = "tags"
 author = "authors"
 
-[[params.social]]
-name = "Github"
-icon = "fa fa-2x fa-github"
-weight = 1
-url = "https://github.com/James-Oswald/"
-
-[[params.social]]
-name = "Google Scholar"
-icon = "fa fa-2x fa-graduation-cap"
-weight = 4
-url = "https://scholar.google.com/citations?user=2AOWZDUAAAAJ&hl=en"
-
-[[params.social]]
-name = "Semantic Scholar"
-icon = "fa fa-2x fa-file-text-o"
-weight = 4
-url = "https://www.semanticscholar.org/author/James-T.-Oswald/51290502"
-
-[[params.social]]
-name = "ResearchGate"
-icon = "fa fa-2x fa-researchgate"
-weight = 4
-url = "https://www.researchgate.net/profile/James-Oswald-6"
-
-[[params.social]]
-name = "LinkedIn"
-icon = "fa fa-2x fa-linkedin"
-weight = 4
-url = "https://www.linkedin.com/in/joswald-/"
-
-[[params.social]]
-name = "ORCID"
-icon = "fa fa-2x fa-orcid"
-weight = 4
-url = "https://orcid.org/0000-0003-1195-4793"
-
-[[params.social]]
-name = "Twitter"
-icon = "fa fa-2x fa-twitter"
-weight = 3
-url = "https://twitter.com/jozwaldus/"
-
-[[params.social]]
-name = "RSS"
-icon = "fa fa-2x fa-rss"
-weight = 6
-url = "https://myhugosite.com/index.xml"
-rel = "alternate"
-type = "application/rss+xml"
-
 
 [languages.en]
 languageName = ":us:"
@@ -117,7 +67,12 @@ url = "about/"
 #url = "projects/"
 
 [[languages.en.menu.main]]
-name = "Contact me"
+name = "Profiles"
+weight = 3
+url = "profiles/"
+
+[[languages.en.menu.main]]
+name = "Contact"
 weight = 5
 url = "contact/"
 
