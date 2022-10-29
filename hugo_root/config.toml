@@ -21,9 +21,7 @@ avatarURL = "images/avatar.png"
 dateFormat = "January 2, 2006"
 since = 2022
 # Git Commit in Footer, uncomment the line below to enable it
-commit = "https://github.com/luizdepra/hugo-coder/tree/"
-# Right To Left, shift content direction for languagues such as Arabic
-rtl = false
+commit = "https://github.com/James-Oswald/jamesoswald.dev"
 # Specify light/dark colorscheme
 # Supported values:
 # "auto" (use preference set by browser)

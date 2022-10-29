@@ -2,6 +2,7 @@
 
 If you contact me on anything besides these three, it is unlikely I will see it. 
 
-Discord: TenebrisLux#8358  
-Personal Email: jamesoswald111@gmail.com  
-School Email: oswalj@rpi.edu  
+{{< fa-contact fa-discord-alt Discord "TenebrisLux#8358" >}}
+{{< fa-contact fa-envelope-o  "Personal Email" "jamesoswald111@gmail.com</a>" >}}
+{{< fa-contact fa-envelope-o "University Email" "oswalj@rpi.edu" >}}
+

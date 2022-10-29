@@ -60,12 +60,18 @@ float fisheye(float x){
     return (a * cos(4.0 * 3.141 * x) + a + 1.0);
 }
 
-#define PI 3.1415926535897932384626433832795
+//https://www.desmos.com/calculator/bovu5jbikc
+float triangleWave(float t){
+    float period = 5.0;
+    float tp = t / period;
+    return 2.0 * abs(tp - floor(tp + 0.5));
+}
 
+#define PI 3.1415926535897932384626433832795
 //https://www.desmos.com/calculator/n9vfe3g5jp
 float zoomlens(float dist, float radius){
     float maxZoomLevel = 0.1;
-    float zoomLevel = maxZoomLevel * sin(time / 10000.0); //Smaller is bigger zoom
+    float zoomLevel = maxZoomLevel * triangleWave(time / 10000.0); //Smaller is bigger zoom
     float waveOffset = 2.0/radius;
     if(dist >= 1.0/waveOffset){
         return ((1.0-zoomLevel)/2.0)*cos(waveOffset*PI*dist) + ((1.0+zoomLevel)/2.0);
