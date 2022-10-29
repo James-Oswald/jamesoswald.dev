@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on James Oswald</title>
-    <link>http://jamesoswald.org/categories/</link>
+    <link>https://jamesoswald.dev/categories/</link>
     <description>Recent content in Categories on James Oswald</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="http://jamesoswald.org/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language><atom:link href="https://jamesoswald.dev/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

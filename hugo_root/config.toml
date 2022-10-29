@@ -1,4 +1,4 @@
-baseURL = "http://jamesoswald.org"
+baseURL = "https://jamesoswald.dev"
 title = "James Oswald"
 theme = "hugo-coder"
 languageCode = "en"

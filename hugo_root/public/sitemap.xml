@@ -2,26 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://jamesoswald.org/about/</loc>
+    <loc>https://jamesoswald.dev/about/</loc>
     <priority>0</priority>
   </url><url>
-    <loc>http://jamesoswald.org/contact/</loc>
+    <loc>https://jamesoswald.dev/contact/</loc>
     <priority>0</priority>
   </url><url>
-    <loc>http://jamesoswald.org/profiles/</loc>
+    <loc>https://jamesoswald.dev/profiles/</loc>
     <priority>0</priority>
   </url><url>
-    <loc>http://jamesoswald.org/publications/</loc>
+    <loc>https://jamesoswald.dev/publications/</loc>
     <priority>0</priority>
   </url><url>
-    <loc>http://jamesoswald.org/authors/</loc>
+    <loc>https://jamesoswald.dev/authors/</loc>
   </url><url>
-    <loc>http://jamesoswald.org/categories/</loc>
+    <loc>https://jamesoswald.dev/categories/</loc>
   </url><url>
-    <loc>http://jamesoswald.org/</loc>
+    <loc>https://jamesoswald.dev/</loc>
   </url><url>
-    <loc>http://jamesoswald.org/series/</loc>
+    <loc>https://jamesoswald.dev/series/</loc>
   </url><url>
-    <loc>http://jamesoswald.org/tags/</loc>
+    <loc>https://jamesoswald.dev/tags/</loc>
   </url>
 </urlset>

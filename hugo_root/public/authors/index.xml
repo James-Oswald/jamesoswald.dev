@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authors on James Oswald</title>
-    <link>http://jamesoswald.org/authors/</link>
+    <link>https://jamesoswald.dev/authors/</link>
     <description>Recent content in Authors on James Oswald</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="http://jamesoswald.org/authors/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language><atom:link href="https://jamesoswald.dev/authors/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

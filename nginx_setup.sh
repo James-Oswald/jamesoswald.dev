@@ -1,1 +1,2 @@
-cp ./jamesoswald.org.conf /etc/nginx/conf.d/jamesoswald.org.conf
+cp ./jamesoswald.dev.conf /etc/nginx/conf.d/jamesoswald.dev.conf
+systemctl restart nginx
