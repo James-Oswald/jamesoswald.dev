@@ -1,9 +1,3 @@
 [submodule "hugo_root/themes/hugo-coder"]
 	path = hugo_root/themes/hugo-coder
 	url = https://github.com/luizdepra/hugo-coder.git
-[submodule ".oldSites/Jozwald.tk"]
-	path = .oldSites/Jozwald.tk
-	url = https://github.com/James-Oswald/Jozwald.tk.git
-[submodule ".oldSites/Jozwald.com"]
-	path = .oldSites/Jozwald.com
-	url = https://github.com/James-Oswald/Jozwald.com.git
