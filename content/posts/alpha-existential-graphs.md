@@ -4,7 +4,7 @@
 
 Ever since learning about Existential Graphs from [a talk given by Bram Van Heuveln]
 (blog/AEGIntro/EG.pdf)\[1\] at the [New York Capital Region Logic Reading Group]
-(https://rairlab.github.io/logic-group/) at RPI; I've had Existential Graphs on
+(https://rairlab.github.io/logic-group/); I've had Existential Graphs on
 my mind a lot. Not only due to their very real ability as a tool for helping students
 learn logic, but also due to how magical they feel. Complex Existential Graphs in the
 Beta and Gama systems such as those found in \[2\] can start looking like magic circles
@@ -16,8 +16,8 @@ familiarity with propositional logic.
 ## Representing Propositional Formulae as Existential Graphs
 
 Existential Graphs can be though of as a diagrammatic/visual means of representing logical statements
-and reasoning over them. Logical statements as we think of them are typically 1 dimensional formulae of characters that
-assert truth of a statement with respect to some atomic propositions. We can use propositional logical
+and reasoning over them. Logical statements as we think of them are typically one dimensional formulae composed of symbols that
+represent a true statement with respect to some atomic propositions. We can use propositional logical
 connectives to build up compound logical formulae. In propositional logic there are five types of compound
 formulae that people typically care about (at least enough that they make it into the most popular inference
 systems):
@@ -36,7 +36,7 @@ and interpret them
 
 ### Atomic Propositions and the Sheet of Assertion
 
-To represent an atomic statement $A$ in propositional logic, one merely represents it as "1d" propositional formula $"A"$.
+To represent an atomic statement $A$ in propositional logic, one merely represents it as "1d" propositional formula "$A$".
 Existential graphs however are represented in 2d space on what is known as the "Sheet of Assertion", which we draw as a square.
 To represent an atomic proposition $A$ as an existential graph, we may place it anywhere on the sheet of assertion.
 
@@ -108,26 +108,44 @@ interpretations of the graphs seen in the NOT section.
 IFF is often expressed as $(A \rightarrow B) \land (B \rightarrow A)$. Using our existential graph for IF, we
 can write IFF as.
 
-The command alternative representation for IFF, $(A \land B) \lor (\lnot A \land \lnot B)$ can also be used.
+A common alternative representation for IFF, $(A \land B) \lor (\lnot A \land \lnot B)$ can also be used.
 Using our definition of OR we can rewrite this as in terms of AND and NOT as
 $\lnot (\lnot (A \land B) \land \lnot(\lnot A \land \lnot B)$. We will later see this definition
 is equivalent to the first and prove it using the rules of inference of Alpha. 
 
 ## Reasoning over Alpha Existential Graphs
-We have seen how to represent propositional statements as Existential Graphs and vice versa,
+We have seen how to represent propositional logic statements as Existential Graphs and vice versa,
 but merely representing logical statements in an alternative format isn't all that interesting on its own. 
 In order for existential graphs to be useful, they should provide us some means of reasoning over 
 logical statements, allowing us to derive meaningful conclusions from hypothesis and prove logical equivalences.
 
 In order to perform reasoning within a logical system we need a set of *inference rules* that specify
-how we may legally take one formulae and derive a conclusion formulae from it. These inference rules should
-be sound with respect to the semantics of the logical system and hence not allow us to derive any false statements,
-but a discussion of this is beyond the scope of this post, a further discussion of inferences can be found in \[2\]
-we will be using those presented by \[1\] and taking for granted their soundness. 
+how we may legally take one formulae and derive a conclusion from it. These inference rules should
+be valid with respect to the semantics of the logical system and hence not allow us to derive any false statements,
+but a discussion of this is beyond the scope of this post. A further discussion of inferences can be found in \[2\];
+we will be using the inference rules presented by \[1\] and taking for granted their soundness. 
 
-## Levels and Subgraphs
-Before we discuss inference rules, we need to discuss two important concepts in existential graphs which are
-referenced in the definition of most of our rules of inference
+## Subgraphs and Levels 
+Before we discuss inference rules for existential graphs, we need to discuss two
+important syntactic concepts in existential graphs which are referenced in the definition of
+most of our rules of inference: *Subgraphs* and *Levels*. 
+
+### Subgraphs
+The notion of subgraphs is best understood via an example:
+
+![The subgraph example]()
+
+How can we formalize this better? One way is to map an existential graph to a tree structure where nodes
+are ANDs and NOTs and leafs are atomic statements. Any subtree in this tree is a subgraph of the EG.
+
+![The subgraph tree isomorphism]()
+
+### Levels
+*Level* is a property of subgraphs. The intuitive explanation is that the level of a subgraph is the number of cuts
+you need to pass through to reach that subgraph. We can formalize this using the tree representation from the last example.
+The level of a subgraph is how many NOT nodes were passed through from the root to reach that subgraph.
+
+![Level image and Tree example]()
 
 ## References
 \[1\] Van Heuveln, B. (2023, March 29). Existential Graphs [public talk]. New York Capital Region Logic Reading Group, NY, USA. Retrieved July 28, 2023, from https://homepages.hass.rpi.edu/heuveb/Teaching/Logic/CompLogic/Web/Presentations/EG.pdf. 
