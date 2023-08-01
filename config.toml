@@ -45,7 +45,6 @@ series = "series"
 tag = "tags"
 author = "authors"
 
-
 [languages.en]
 languageName = ":us:"
 
@@ -54,10 +53,10 @@ name = "About"
 weight = 1
 url = "about/"
 
-#[[languages.en.menu.main]]
-#name = "Blog"
-#weight = 2
-#url = "posts/"
+[[languages.en.menu.main]]
+name = "Blog"
+weight = 2
+url = "posts/"
 
 #[[languages.en.menu.main]]
 #name = "Projects"
