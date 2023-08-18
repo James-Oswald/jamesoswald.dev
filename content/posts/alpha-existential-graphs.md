@@ -28,9 +28,8 @@ familiarity with propositional logic.
 ## Representing Propositional Formulae as Existential Graphs
 
 Existential Graphs can be though of as a diagrammatic/visual means of representing logical statements
-and reasoning over them. The Alpha system can be thought of as a limited two dimentional representation
-for propositional logic,
-where the items of investigation are propositional statements (sentences that may be true or false) and the
+and reasoning over them. The Alpha system can be thought of as a limited two dimensional representation
+for propositional logic, where the items of investigation are propositional statements (sentences that may be true or false) and the
 relations between them. The first step to getting a handle on existential graphs in the alpha system is to understand how to build 
 and interpret them. 
 
@@ -52,7 +51,7 @@ systems, sorry XOR):
 
 ### Atomic Propositions and the Sheet of Assertion
 
-To represent an atomic statement $A$ in propositional logic, one merely represents it as "1d" propositional formula "$A$".
+To represent an atomic statement $A$ in propositional logic, one merely represents it as a "1d" propositional formula "$A$".
 Existential graphs however are represented in 2d space on what is known as the "Sheet of Assertion", which we draw as a square.
 To represent an atomic proposition $A$ as an existential graph, we may place it anywhere on the sheet of assertion.
 
@@ -83,7 +82,7 @@ be read "$B \land A$" for the left and any permutation of $A, B, C, D$ for the r
 ### Logical Not and Cuts
 
 To represent the negation of some statement $A$ in propositional logic, we can prefix it with a 
-$\lnot$. We can interpret this as introducing some form of inner context in the 1d formulae 
+$\lnot$. We can interpret this as introducing some form of inner context for 1d formulae 
 in which everything inside a $\lnot(\cdots)$ is asserted to be false. Since existential graphs
 are 2d, we need some way of representing what a negated context two dimensionally. This is done
 using a "Cut" which is represented by drawing a connected boundary on the sheet of assertion,

@@ -53,7 +53,7 @@ function createShader(sourceCode, type){
     return shader;
 }
 
-//These have to be global due to window.requestAnimationFrame not accepting params
+//These "have" to be global due to window.requestAnimationFrame not accepting params
 const shader_program = gl.createProgram();      //The shader program
 const fullscreen_quad_vbo = gl.createBuffer();  //The fullscreen quad the shader is projected on
 let position_attribute = null;
