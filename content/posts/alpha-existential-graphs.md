@@ -113,10 +113,11 @@ So far we have introduced ways to represent conjunction via multiple assertion a
 These are actually the only two representational features provided by the alpha system. So how can we represent
 other compound operators such as OR in existential graphs? This is where the property of functional completeness
 of AND and NOT comes into play. In short, AND and NOT are the only operators you need to
-represent all possible truth tables \[2\]. That is, any other logical operator can be defined
-solely in terms of ANDs and NOTs. To represent OR in terms of AND and NOT we use $\lnot (\lnot A \land \lnot B)$.
-The equivalence of this formulae to OR can be proven easily using De Morgan's laws or 
-[using a truth table](https://web.stanford.edu/class/cs103/tools/truth-table-tool/).
+represent all possible truth tables \[[3](https://brandonrozek.com/blog/functional-completeness/)\].
+That is, any other logical operator can be defined solely in terms of ANDs and NOTs.
+To represent $A \lor B$ in terms of AND and NOT we can use the equivalent formula $\lnot (\lnot A \land \lnot B)$.
+The equivalence of this formulae to OR can be proven easily using [De Morgan's laws](https://en.wikipedia.org/wiki/De_Morgan%27s_laws)
+or [using a truth table](https://web.stanford.edu/class/cs103/tools/truth-table-tool/).
 
 With this equivalence in place, we can now use the tools of existential graphs we have seen so far to represent OR.
 
