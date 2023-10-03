@@ -172,7 +172,7 @@ From left to right:
 ### Biconditionals 
 IFF, if and only if, is defined as $(A \rightarrow B) \land (B \rightarrow A)$. Using our existential graph for IF, we
 can write IFF. A common alternative representation for IFF, $(A \land B) \lor (\lnot A \land \lnot B)$ can also be used;Via  our definition of OR we can rewrite this as in terms of AND and NOT as
-$\lnot (\lnot (A \land B) \land \lnot(\lnot A \land \lnot B)$. We will later see this definition
+$\lnot (\lnot (A \land B) \land \lnot(\lnot A \land \lnot B))$. We will later see this definition
 is equivalent to the first and prove it using the rules of inference of Alpha. 
 
 Two equivalent formalisms of IFF:   

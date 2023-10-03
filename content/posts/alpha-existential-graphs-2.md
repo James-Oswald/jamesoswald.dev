@@ -30,47 +30,37 @@ important syntactic concepts in existential graphs which are referenced in the d
 most of our rules of inference. These concepts are *Subgraphs* and *Nested Levels*. 
 
 #### Subgraphs
-The notion of subgraphs is best understood via an example, the following EG representing $A \rightarrow B$ has five
-subgraphs, including the graph itself.
+The notion of subgraphs is best understood via an example, the following EG representing $A \rightarrow B$ has five obvious subgraphs, including the graph itself. (Note: We may also consider the empty EG representing the logical constant True to be a subgraph of every level, but do not depict this)
 
 ![The subgraph example](/blog/AEGIntro/Subgraphs.png)
 
-How can we formalize this better? One way is to map an existential graph to an n-ary tree structure where nodes
-are ANDs and NOTs and leafs are atomic statements. Any subtree in this tree is a subgraph of the EG.
-Each of the subtrees in this example can be seen to directly map to one of the five subgraphs.
+How can we formalize this better? One way is to map an existential graph to an n-ary tree structure. The sheet of assertion is the root, atoms are leafs, and cuts may either be leaves or have children. 
+In this representation a subgraph corresponds a subset of children on a given level of the tree. (Note: The empty set $\empty$ is a subset of children on any level, corresponding to the idea that the the empty EG representing the logical constant True is a subgraph on any level) 
 
 ![The subgraph tree isomorphism](/blog/AEGIntro/TreeIso.png)
 
-#### An Aside Regarding Some Problems with the Subgraph-Tree Isomorphism
-*This section contains rambling and unproven claims, it is best to circle back once you have read the rest.
-maybe someday this will be turned into a full blog post with pictures.*  
+In $G$ we observe that each subset on each level corresponds directly with one of the subgraphs from the previous figure. The first cut containing $\\{A, \lnot B\\}$ has the following subsets $ \\{A, \lnot B\\}, \\{A\\}, \\{\lnot B\\}, \empty $
+(Note $\empty$ not pictured)
 
-The presented tree representation is not optimal in terms of space, but is helpful for exposition as it reveals
-the underlying propositional operators and subgraphs exactly map to subtrees.
-One obvious spacial optimization is removing conjunct nodes and 
-treating cut nodes as both cuts and conjuncts. Implementing this requires modifying the subgraph subtree
-isomorphism to have each cut node map to two subgraphs, the cut (1) and conjuncts (2). We will later discuss
-how to make this even better. 
+In $G2$ we need to account for every subset of the children on the first cut as a subgraph. Symbolically we would say the subgraphs of $ \\{A, \lnot B, C\\}$ are $\\{A, \lnot B, C\\}$, $\\{A, \lnot B\\}$, $\\{A, C\\}$, $\\{\lnot B, C\\}$, $\\{A\\}$, $\\{\lnot B\\}$, $\\{C\\}$, $\empty$.
 
-Further issues arise when thinking about subsets of conjuncts and their status as subgraphs.
-In the above example we look at a simple problem where both the cut (1) the conjunction of
-all children (2) and the conjuncts themselves (3 and 4) are all considered subgraphs of the top level
-existential graph. But what of the case with three conjuncts (A, B, C) rather than two? Obviously
-the cut ($\lnot(A \land B \land C)$), full conjunction ($A \land B \land C$), and the individual 
-conjuncts ($A$, $B$, and $C$) are all subgraphs, but what of subsets of the conjuncts ($A \and B$, 
-$A \and B$, and $A \and C$)? If these are considered to be subgraphs, the tree isomorphism
-needs to be revised such that each conjunct rooted tree maps to the subgraphs of all subsets of its conjuncts.
+Using this setup we can recursively define the set of subgraphs of an AEG in this tree representation. Given a function $C(G)$ returns the children of G, and $\mathcal{P}(s)$ is the powerset of $s$ (the set of all subsets of $s$), we can define set of subgraphs of an an existential graph $G$ as $S(G)$
 
-The status of subsets of conjuncts as subgraphs is not covered in my source \[1\], but they do claim that
-full conjuncts are subgraphs. I however make the (unproven and not fully thought out) claim that the
-status of subsets of the conjuncts as subgraphs and even full conjuncts inside of cuts is irrelevant as long as
-individual conjuncts are counted as subgraphs. My proof sketch for this claim is that since if we limit subgraphs 
-to individual conjuncts, Iteration, Deiteration, Erasure, and Insertion can be applied on a conjunct-by-conjunct basis rather than 
-in a way that groups of conjuncts are transformed together. Double-cut introduction on multiple items can be applied 
-via introducing an empty double cut, iterating conjuncts inside of it one by one 
- While this increases proof length since rules
-need to be applied repeatably it greatly simplifies representation, making subtrees map perfectly to subgraphs
-for the case where conjunct nodes are merged into cut nodes.
+$$
+S(G) = \begin{cases}
+\\{\\{G\\}\\} & G \text{ is an atom} \\\\
+\\{\\{G\\}\\} \cup \mathcal{P}(C(G)) \cup \bigcup\limits_{c \in C(G)} S(c) & G \text{ is a cut} \\\\
+\end{cases}
+$$
+Lets use a tree based notation and walk through an example, let $(A (B))$ be $G$ and $(A (B) C)$ be $G2$ from our examples.
+$$
+\begin{align*}
+S((A (B))) &= \\{\\{(A (B))\\}\\} \cup \mathcal{P}(\\{A, (B)\\}) \cup \bigcup\limits_{c \in \\{A, (B)\\}} S(c) \\\\
+ &= \\{\\{(A (B))\\}\\} \cup \\{\\{A, (B)\\}, \\{A\\}, \\{(B)\\},\empty \\} \cup S(A) \cup S((B)) \\\\
+ &= \\{\\{(A (B))\\}\\} \cup \\{\\{A, (B)\\}, \\{A\\}, \\{(B)\\},\empty \\} \cup \\{\\{A\\}\\} \cup \left(\\{\\{(B)\\}\\} \cup \mathcal{P}(\\{B\\}) \cup \bigcup\limits_{c \in \\{B\\}} S(c)\right) \\\\
+ &= \\{\\{(A (B))\\}\\} \cup \\{\\{A, (B)\\}, \\{A\\}, \\{(B)\\},\empty \\} \cup \\{\\{A\\}\\} \cup \left(\\{\\{(B)\\}\\}\cup \\{\\{B\\}, \empty\\} \cup \\{\\{B\\}\\} \right) \\\\
+\end{align*}
+$$
 
 #### Levels and Nested Levels
 *Level* is a property of subgraphs. The intuitive explanation is that the level of a subgraph is the number of cuts
@@ -145,3 +135,7 @@ https://homepages.hass.rpi.edu/heuveb/Teaching/Logic/CompLogic/Web/Presentations
 
 \[3\] Van Heuveln, B. (2002, June 6). Formalizing Alpha: Soundness and Completeness [web slides]. Retrieved July 31, 2023, from  
 https://homepages.hass.rpi.edu/heuveb/Research/EG/details.html.
+
+## Acknowledgements  
+
+Thank you Brandon Rozek for teaching me hugo katex (or mathjax maybe, we are still unsure).
