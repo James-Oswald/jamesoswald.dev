@@ -1,7 +1,7 @@
 
 # About Me
 
-You can find my CV [here](/documents/CV.pdf) (Current as of 6/20/23).
+You can find my CV [here](/documents/CV.pdf) (Current as of 11/4/2023).
 
 Hello, my name is James Oswald! I am PhD student at [Rensselaer Polytechnic Institute](https://rpi.edu/) and graduate researcher with the [The Rensselaer Artificial Intelligence and Reasoning (RAIR) Laboratory](https://rair.cogsci.rpi.edu/), under [Professor Selmer Bringsjord](https://homepages.rpi.edu/~brings/). My primary research interest is in Artificial Intelligence (AI), particularly Artificial General Intelligence (AGI), that is, how we can best create single AI agents that performs well on general tasks. The rest of my research interests such as machine learning, modal logic, and cognitive architectures all stem from my interest in AGI design. 
 
