@@ -1,4 +1,4 @@
-baseURL = "https://jamesoswald.org"
+baseURL = "https://jamesoswald.dev"
 title = "James Oswald"
 theme = "hugo-coder"
 languageCode = "en"
@@ -73,3 +73,6 @@ name = "Contact"
 weight = 5
 url = "contact/"
 
+[services]
+  [services.googleAnalytics]
+    googleAnalytics = 'G-BG9KP7JFTZ'
