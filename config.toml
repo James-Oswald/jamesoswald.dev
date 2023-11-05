@@ -72,7 +72,3 @@ url = "profiles/"
 name = "Contact"
 weight = 5
 url = "contact/"
-
-[services]
-  [services.googleAnalytics]
-    googleAnalytics = 'G-BG9KP7JFTZ'
