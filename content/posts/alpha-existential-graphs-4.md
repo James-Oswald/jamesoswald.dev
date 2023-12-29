@@ -1,6 +1,6 @@
 +++ 
 authors = ["James Oswald"]
-title = "Some Inference Rules of Peirce's Alpha Existential Graphs" 
+title = "Inference Rules in Peirce's Alpha Existential Graphs (Part 1)" 
 date = "2023-10-30"
 description = "A brief guide to inference rules in Peirce's Alpha Existential Graph system"
 math = true
@@ -58,7 +58,7 @@ The Insertion rule states that you can insert ANY graph as a subgraph at any odd
 
 ![Insertion Examples](/blog/AEGIntro/InsertionExamples.png)
 
-What is really going on here? Formally this rule corresponds to the rule in propositional logic known as "Strengthening the Antecedent" represented in propositional logic by the tautology:
+What is really going on here? Formally this rule corresponds to the rule in propositional logic known as "Strengthening the Antecedent"\[3\] represented in propositional logic by the tautology:
 $$(A \rightarrow B) \rightarrow ((A \land C) \rightarrow B)$$
 This says that if we know $A$ implies $B$ then we know that $A \land C$ also implies $B$. This is clearly because due to $A$ implies $B$, we know $A$ alone is sufficient for $B$, thus regardless of what else is added to the antecedent, we can be sure $B$ will follow. 
 
@@ -82,7 +82,7 @@ The Erasure rule states that you can erase any subgraph at an even level.
 ![Erasure Examples](/blog/AEGIntro/ErasureExamples.png)
 
 Formally this rule corresponds to the rule in propositional logic known as 
-"Weakening the Consequent" traditionally written as:
+"Weakening the Consequent"\[3\] traditionally written as:
 $$(A \rightarrow B) \rightarrow (A \rightarrow (B \lor C))$$
 But for our purposes we will better be served by the equivalent: 
 $$(A \rightarrow (B \land C)) \rightarrow (A \rightarrow B)$$

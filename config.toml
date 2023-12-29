@@ -72,3 +72,6 @@ url = "profiles/"
 name = "Contact"
 weight = 5
 url = "contact/"
+
+[markup.highlight]
+style = "github-dark"
