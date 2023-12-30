@@ -6,6 +6,7 @@ description = "In this work, we present a logicist framework for constructing an
 math = true
 tags = ["Worldbuilding", "Opinion"]
 series = []
+draft=true
 +++
 
 # The Logicist Mage's Manifesto  
