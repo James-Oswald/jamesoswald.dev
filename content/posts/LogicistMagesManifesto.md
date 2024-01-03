@@ -4,12 +4,12 @@ title = "Worldbuilding Formal and Aesthetic Magic Systems"
 date = "2023-12-29"
 description = "In this work, we present a logicist framework for constructing and worldbuilding magic systems in which spells are intellectually meaningful, rigorously defined, and aesthetic."
 math = true
-tags = ["Worldbuilding", "Opinion"]
+tags = ["Worldbuilding", "Opinion", "Logic"]
 series = []
 draft=true
 +++
 
-# The Logicist Mage's Manifesto  
+# A Logicist Mage's Manifesto  
 
 Dungeons and Dragons and the consequences of its magic system has been a disaster for the human race. The notions of (1) tiered magic,
 and (2) distinct well-thought-out spells that can be learned via training, leveling, or purchase with skill points, has permeated the fantasy world magic systems of innumerable video games, books, and other media. The ideas put forward by these systems can be summed up in one word: dumb. These systems dumb magic down from the very aesthetic many of these same worlds ascribe to it: an intellectual pursuit. In the majority of magical settings, mages are portrayed as scholars, academics, researchers, and intellectuals; yet rarely do the magical systems in these worlds mirror the intellectual dignity or rigor one would expect of them given their scholarly aesthetics. In this work, we present a logicist framework for constructing and worldbuilding magic systems in which spells are  meaningful (rigorously defined), and aesthetic.
@@ -68,7 +68,7 @@ $$
 Entangled(Monster A, Monster B)
 $$
 
-To build more complex spells we may look to the basic logical connectives from propositional logic: Negation "not"($\lnot$), Conjunction "and"($\land$), Disjunction "or"($\lor$), and Conditionals "if"($\rightarrow$).
+To build more complex spells we may look to the basic logical connectives from propositional logic: Negation "not"($\lnot$), Conjunction "and"($\land$), Disjunction "or"($\lor$), and Conditionals "if ... then ..."($\rightarrow$).
 Using the atomic predicates $OnFire$ and $Entangled$ we define some more complex spells.
 | English Spell                                               | Predicate Logic Spell                                       | Spell Action                                                 |
 |-------------------------------------------------------------|-------------------------------------------------------------|--------------------------------------------------------------|
@@ -82,7 +82,7 @@ Using the atomic predicates $OnFire$ and $Entangled$ we define some more complex
 
 These compounds give rise to a few interesting properties that we note here: First we can negate facts about the world, hence our "is on fire" predicate can be negated to form an extinguish spell. Conjunction allows us to make multiple facts true in a single spell. Disjunction allows for some notion of random outcome as multiple outcome worlds (sets of facts) may match the spell***. Conditionals allow for conditional spells that only modify the world if something else is already true. A spell that states a contradiction such as $OnFire(A) \land \lnot OnFire(A)$ is an interesting construct as it is impossible to make both $OnFire(A)$ true and false simultaneously, perhaps the spell fizzles, or explodes, this is left up to the world builder.
 
-*****For Logicians**: We note some potential issues with our informal semantics for disjunction and by extension conditionals. It is likely that the conditional used here can not be interpeted as the material conditional, due to the temporal interpretation of disjunction, which is quite weird in this system. These semantics should probably be read more inline with actions and disjunctive preconditions and effects from AI automated planning and contingent planning, based on the situation calculus. There is also an argument to be made that this is not an issue and we can take an unconventional model theoretic approach in which we convert spell formulae to normal forms and find "least costly" models (via some resolution based procedure) that flip the most recent contradictors of atoms (to mimic some form of shortest path finding), though more though needs to be given to this for deeper formalization.
+*****For Logicians**: We note some potential issues with our informal semantics for disjunction and by extension conditionals. It is likely that the conditional used here can not be interpeted as the material conditional, due to the temporal interpretation of disjunction, which is quite weird in this system. These semantics should probably be read as disjunctive effects from AI automated planning and contingent planning, based on the situation calculus. There is also an argument to be made that this is not an issue and we can take an unconventional model theoretic approach in which we convert spell formulae to normal forms and find "least costly" models (via some resolution based procedure) that flip the most recent contradictors of atoms (to mimic some form of shortest path finding), though more though needs to be given to this for deeper formalization.
 
 ### Existential Spells, Universal Spells
 So far we have been talking about spells that light a named individual on fire, but there is a strong case to be made for magic systems
