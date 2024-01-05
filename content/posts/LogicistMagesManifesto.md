@@ -1,18 +1,18 @@
 +++ 
 authors = ["James Oswald"]
-title = "Worldbuilding Formal and Aesthetic Magic Systems" 
-date = "2023-12-29"
+title = "Worldbuilding Formal and Aesthetic Magic Systems: A Logicist Mage’s Manifesto" 
+date = "2024-01-04"
 description = "In this work, we present a logicist framework for constructing and worldbuilding magic systems in which spells are intellectually meaningful, rigorously defined, and aesthetic."
 math = true
-tags = ["Worldbuilding", "Opinion", "Logic"]
+tags = ["Worldbuilding", "Opinion", "Logic", "Automated Planning", "Existential Graphs"]
 series = []
-draft=true
+draft=false
 +++
 
 # A Logicist Mage's Manifesto  
 
 Dungeons and Dragons and the consequences of its magic system has been a disaster for the human race. The notions of (1) tiered magic,
-and (2) distinct well-thought-out spells that can be learned via training, leveling, or purchase with skill points, has permeated the fantasy world magic systems of innumerable video games, books, and other media. The ideas put forward by these systems can be summed up in one word: dumb. These systems dumb magic down from the very aesthetic many of these same worlds ascribe to it: an intellectual pursuit. In the majority of magical settings, mages are portrayed as scholars, academics, researchers, and intellectuals; yet rarely do the magical systems in these worlds mirror the intellectual dignity or rigor one would expect of them given their scholarly aesthetics. In this work, we present a logicist framework for constructing and worldbuilding magic systems in which spells are  meaningful (rigorously defined), and aesthetic.
+and (2) distinct well-thought-out spells that can be learned via training, leveling, or purchase with skill points, has permeated the fantasy world magic systems of innumerable video games, books, and other media. The ideas put forward by these systems can be summed up in one word: dumb. These systems dumb magic down from the very aesthetic many of these same worlds ascribe to it: an intellectual pursuit. In the majority of magical settings, mages are portrayed as scholars, academics, researchers, and intellectuals; yet rarely do the magical systems in these worlds mirror the intellectual dignity or rigor one would expect of them given their scholarly aesthetics. In this work, we outline a logicist framework for constructing and worldbuilding magic systems in which spells are  meaningful (rigorously defined), and aesthetic.
 
 ## The World as a Set of Facts
 > The world is the totality of facts, not of things. For the totality of facts determines both what is the case, and
@@ -69,8 +69,8 @@ Entangled(Monster A, Monster B)
 $$
 
 To build more complex spells we may look to the basic logical connectives from propositional logic: Negation "not"($\lnot$), Conjunction "and"($\land$), Disjunction "or"($\lor$), and Conditionals "if ... then ..."($\rightarrow$).
-Using the atomic predicates $OnFire$ and $Entangled$ we define some more complex spells.
-| English Spell                                               | Predicate Logic Spell                                       | Spell Action                                                 |
+Using the atomic predicates $OnFire$ and $Entangled$ we define some more complex spells, and provide an informal meaning/semantics for each.
+| English Spell                                               | Predicate Logic Syntax Spell                                       | Informal Semantics                                                 |
 |-------------------------------------------------------------|-------------------------------------------------------------|--------------------------------------------------------------|
 | A is not on fire                                            | $\lnot OnFire(A)$                                           | Extinguishes A if it was on fire                              |
 | A is on fire and B is on fire                               | $OnFire(A) \land OnFire(B)$                                 | Sets both A and B on fire at the same time                   |
@@ -80,14 +80,16 @@ Using the atomic predicates $OnFire$ and $Entangled$ we define some more complex
 | If A is on fire and B is not on fire, then A and B are entangled | $OnFire(A) \land \lnot OnFire(B) \rightarrow Entangle(A,B)$ | If A is not on fire and B is not on fire, entangles A and B  |
 | A is on fire and A is not on fire                           | $OnFire(A) \land \lnot OnFire(A)$                           | A contradiction, this can never be made true in the world    |
 
-These compounds give rise to a few interesting properties that we note here: First we can negate facts about the world, hence our "is on fire" predicate can be negated to form an extinguish spell. Conjunction allows us to make multiple facts true in a single spell. Disjunction allows for some notion of random outcome as multiple outcome worlds (sets of facts) may match the spell***. Conditionals allow for conditional spells that only modify the world if something else is already true. A spell that states a contradiction such as $OnFire(A) \land \lnot OnFire(A)$ is an interesting construct as it is impossible to make both $OnFire(A)$ true and false simultaneously, perhaps the spell fizzles, or explodes, this is left up to the world builder.
+These compounds give rise to a few interesting properties that we note here: First we can negate facts about the world, hence our "is on fire" predicate can be negated to form an extinguish spell. Conjunction allows us to make multiple facts true in a single spell. Disjunction allows for some notion of random outcome as multiple outcome worlds (sets of facts) may match the spell. Conditionals allow for conditional spells that only modify the world if something else is already true. A spell that states a contradiction such as $OnFire(A) \land \lnot OnFire(A)$ is an interesting construct as it is impossible to make both $OnFire(A)$ true and false simultaneously, perhaps the spell fizzles, or explodes, this is left up to the world builder.
 
-*****For Logicians**: We note some potential issues with our informal semantics for disjunction and by extension conditionals. It is likely that the conditional used here can not be interpeted as the material conditional, due to the temporal interpretation of disjunction, which is quite weird in this system. These semantics should probably be read as disjunctive effects from AI automated planning and contingent planning, based on the situation calculus. There is also an argument to be made that this is not an issue and we can take an unconventional model theoretic approach in which we convert spell formulae to normal forms and find "least costly" models (via some resolution based procedure) that flip the most recent contradictors of atoms (to mimic some form of shortest path finding), though more though needs to be given to this for deeper formalization.
+{{< notice warning >}}
+**For Logicians**: We note some potential issues with our informal semantics for disjunction and by extension conditionals. It is likely that the conditional used here can not be interpeted as the material conditional, due to the semantics provided for disjunction. There is an interesting connection here to the field of [*automated planning*](https://en.wikipedia.org/wiki/Automated_planning_and_scheduling): Our disjunctive semantics are closer to non-deterministic effects from automated planning, and the conditional semantics are similar to preconditions, it is likely that anyone trying to formalize a logist magic system will find automated planning and planing software as their most useful tools. There is an argument to be made that these semantics are not an issue and we can take an unconventional model theoretic approach to implementing the system via an algorithm in which we convert spell formulae to normal forms and find "least costly" models (via some resolution based procedure) that flip the most recent contradictors of atoms (to mimic some form of shortest path finding, perhaps this is even equivalent to the automated planning approach), though more though needs to be given to this for deeper formalization.
+{{</notice>}}
 
 ### Existential Spells, Universal Spells
 So far we have been talking about spells that light a named individual on fire, but there is a strong case to be made for magic systems
-in which you can not talk or directly identify an individual by name (infact this is the authors' preferred system inline with our magic circle system).
-We need a way of talking about general objects in the world and we do this via the notion of quantifiers from [first order logic](https://en.wikipedia.org/wiki/First-order_logic).
+in which one can not talk or directly identify an individual by name (infact this is the authors' preferred system inline with our magic circle system).
+We need a way of talking about arbitrary and non-named objects in the world and we do this via the notion of quantifiers from [*first order logic*](https://en.wikipedia.org/wiki/First-order_logic).
 
 Quantifiers come in two flavors, *existential quantifiers* that allow us to make statements about an arbitrary objects that exist "There exists some object O such that [something about O]", and *universal quantifiers* that allow us to make statements about all objects in the world of the form "For every object O, [Something about O]". For example, the statement "A monster is on fire" is an existential statement, Using the quantifiers it would be read, "There some object O, such that that O is a monster and O is on fire". In first order logic we write this:
 $$
@@ -99,7 +101,7 @@ $$
 $$
 
 For the sake of argument, there are only a finite number of objects in the world we can talk about in our spells, and we can thus use the *truth 
-functional expansions of the quantifiers* to help us better understand how these statements may be interpreted. If the world contains monsters $O_1 \cdots O_n$ then "A monster is on fire" can be read "$O_1$ is on fire or $O_2$ is on fire or $O_3$ is on fire..."*** thus leading the spell to make it so
+functional expansions of the quantifiers* to help us better understand how these statements may be interpreted. If the world contains monsters $O_1 \cdots O_n$ then "A monster is on fire" can be read "$O_1$ is on fire or $O_2$ is on fire or $O_3$ is on fire..." thus leading the spell to make it so
 that the some monsters are on fire. The universal spell "All monsters are on fire" can be read as "$O_1$ is on fire and $O_2$ is on fire and $O_3$ is on fire...".
 
 Note that the universal spell is extraordinarily powerful, perhaps too much so, lighting all monsters in the world on fire is quite a spell, and probably requires too much extra-natural energy for any normal mage to cast. World builders should decide what happens in these situations, if the user runs out of mana, or can even cast it at all. Alteratively perhaps the or the domain is only what the caster perceives so the statement "All monsters are on fire" is closer to a "All monsters i can see are on fire" or a "All monsters near this spell are on fire".
@@ -110,7 +112,9 @@ To light them on fire you need to cast two septate spells "A is on fire" and "B 
 "*x* in front of caster" to denote that the object *x* is infront of the individual casting the spell. We can now say the following without referring to the specific names of the monster, to the same effect, a general ignition spell.
 "Any monster infront of the caster is on fire" or "If there exists a monster infront of the caster, than it is on fire."
 
-*****For Logicians**: The careful reader / logician may notice we elide disjunctive issues via assuming $O$s are monsters rather than arbitrary objects in the domain, that is we give monsters a type/sort. This is for the sake of exposition, but you could also add sorts to the system itself. If we instead conster monsters as arbitrary objects in the domain and use the definition from before we get "$O_1$ is a monster and $O_1$ is on fire or $O_2$ is a monster and $O_2$ is on fire or ..." there are obvious issues with this relating to how we interpret disjunction in this system, as we don't want the spell to start converting arbitrary objects in the domain to monsters and lighting them on fire. If we select a a semantics for disjunction that minimally impacts the world than this problem goes away as it is "cheapest" to light a single object that is already monster on fire than to convert and object to a monster AND light it on fire. 
+{{< notice note >}}
+**For Logicians**: The careful reader / logician may notice we elide disjunctive issues via assuming $O$s are monsters rather than arbitrary objects in the domain, that is we give monsters a type/sort. This is for the sake of exposition, but you could also add sorts to the system itself. If we instead conster monsters as arbitrary objects in the domain and use the definition from before we get "$O_1$ is a monster and $O_1$ is on fire or $O_2$ is a monster and $O_2$ is on fire or ..." there are obvious issues with this relating to how we interpret disjunction in this system, as we don't want the spell to start converting arbitrary objects in the domain to monsters and lighting them on fire. If we select a a semantics for disjunction that minimally impacts the world than this problem goes away as it is "cheapest" to light a single object that is already monster on fire than to convert and object to a monster AND light it on fire. 
+{{< /notice >}} 
 
 ### Temporal Spells, Mind Control Spells, Spells about Spells
 
@@ -126,6 +130,11 @@ or "Monster M will eventually not be on fire". Using epistemic logics we may mak
 in the world believe "Monster A believes Monster B is an enemy" leading to a foundation for a form of control magic
 mind reading, and conjuration. Using metalogics we make make statements about spells as if they are objects,
 and spells may have their own meta atomic predicates "All spells can not destroy this rock" "The spell being cast by the monster infront of me will fail".  
+
+{{< notice warning >}}
+**For Logicians**: One issue with metalogics allowing quantification over spells would be that we no longer have a finite domain (as the number of spells is infinite due it being isomorphic with the set of finite well formed formulae which is countably infinite)
+leading to potential issues with actual implementation.
+{{< /notice >}} 
 
 The depth enabled by these logics is enormous but for world builders attempting to implement a logicist magic system in practice,
 particularly for games, should take into account the complexities of implementing these systems even for finite worlds,
@@ -164,7 +173,16 @@ The axioms should give rise to interesting interactions and give rise to unfores
 for a natural evolution of the "meta" of a magic system over time, as new discoveries are made. 
 Selecting good atomic predicates and axioms that relate them is key to designing a good logicist magic system.
 
-## The Syntax of Magic
+{{< notice note >}}
+**For Logicians:** Upon reading a first draft of this post, my friend [Brandon Rozek](https://brandonrozek.com) brought up a good point,
+we have a notion of statements and axioms in this system, but what about proofs? Unfortunately questions regarding 
+the temporal semantics of disjunction and conditionals need to be addressed before committing to an inference system,
+which would somehow need to take these into account. If an inference system is developed it would give rise to
+even greater complexities in the system and there could be formal proofs of laws of nature based on the axioms,
+as well as spell behaviors if higher order axioms are allowed.  
+{{< /notice >}}
+
+## The Syntax and Aesthetics of Magic
 So far spells presented have either looked like english statements or just symbolic statements in logic.
 Most would agree that this isn't very aesthetic means of representing spells. One simple way of representing these statements would be using a simple substitution cipher and using symbols for atomic statements can be effective in creating interesting looking spells.
 
@@ -175,16 +193,16 @@ $$
 $$
 
 The logic symbols themselves could also be substituted with more interesting symbols. A harder alternative is
-creating a new language (a [conlang](https://en.wikipedia.org/wiki/Constructed_language)) such as [Tolkien's elfish languages](https://en.wikipedia.org/wiki/Elvish_languages_of_Middle-earth) and writing your statements in that instead, but be wary that it should be automatically parsable, but not nesisarilly uniquely parsable, as this adds more fun***. Finally we turn to the most interesting way of representing logical statements, diagrams. 
+creating a new language (a [conlang](https://en.wikipedia.org/wiki/Constructed_language)) such as [Tolkien's elfish languages](https://en.wikipedia.org/wiki/Elvish_languages_of_Middle-earth) and writing your statements in that instead, but be wary that it should be automatically parsable, but not nesisarilly uniquely parsable, as this adds more fun. Finally we turn to the most interesting way of representing logical statements, diagrams. 
 
-
-*****For Logicians and Programmers**: For someone looking to implement a logicist magic system in a game, statements need to be parsable so statements must also have a parsable form so that we can compute the effects they are having on the world. Unlike in traditional formal languages where ambiguity is dissuaded, 
+{{< notice tip >}}
+**For Logicians and Programmers**: For someone looking to implement a logicist magic system in a game, statements need to be parsable so statements must also have a parsable form so that we can compute the effects they are having on the world. Unlike in traditional formal languages where ambiguity is dissuaded, 
 the potential for ambiguity and multiple parse trees is a feature rather than a bug of this system,
 as it adds another disjunctive level, in which we can randomly select which parse tree is the one
 we actually end up using.  
+{{< /notice >}}
 
-
-## The Magic Circle as Syntax
+## Existential Graphs as Magic Circles
 
 The magic circle is a staple of fantasy, but unfortunately in most all implementations 
 has come to symbolize naught but aesthetic nonsense. Rarely is any thought given to the magic
@@ -192,5 +210,72 @@ circle beyond its size and how many familiar magic looking alchemical symbols th
 While pretty, these magic circles are the hallmark of an awful dumbed down magic system, in which creators are more
 concerned with aesthetics over meaning. 
 
-Chales Sanders Peirce worked out a diagrammatic means of representing first order logic statements
-using his beta existential graph system. This is our preferred means of representing magic and creating magic circles.
+The question then is: Can we represent meaningful and precise statements like formulae in geometrically
+interesting and visually pleasing ways? One place to start is a two (or many) dimensional representation of
+formulae. 
+
+[Chales Sanders Peirce](https://en.wikipedia.org/wiki/Charles_Sanders_Peirce) worked out a diagrammatic means of representing
+propositional, modal, and higher order logic statements using his [existential graph systems](https://en.wikipedia.org/wiki/Existential_graph). The existential graph system corresponding to first order logic statements is known as the *beta existential graph system*. This is our preferred means of
+representing statements diagrammatically and creating magic circles. We will forgo an providing an introduction to existential graphs, A full introduction can be found in [Don D. Robert's overview paper](https://doi.org/10.1016/0898-1221(92)90127-4), instead we will provide some examples to show 
+what some formulae can look like when represented as beta existential graphs (Images are taken from [John F. Sowa's commentary of Peirce's *New Elements of Mathematics*](http://www.jfsowa.com/peirce/ms514.htm)).
+
+![Image of BEGs](/blog/MagicBEGs.png)
+
+These are read as follows:
+1) A phoenix exists
+2) A phoenix does not exist
+3) Something exists which is both industrious and a boy
+4) An industrious thing exists and a boy exists
+5) Something exists which is not a phoenix
+6) Anything that thunders lightnings (depending on interpretation of the atomic predicates, this could also be read as "Anything that produces thunder produces lightning")
+7) Something exists that thunders but does not lightning
+8) At least 3 things exist
+9) At most 3 things exist
+10) Exactly 3 things exist
+
+Spells 8, 9, and 10 particularly showcase the ability of beta existential graphs as a prototype for magic circles due to their pleasing symmetry.
+It is important to note that any first order formulae with equality can be expressed in the beta existential graph system, 
+meaning we can represent any compound, existential, or universal spells using beta existential graphs. 
+
+{{< notice note >}}
+The pictures of 8, 9, and 10 were a core inspiration for this post.
+{{< /notice >}}
+
+{{< notice warning >}}
+**For Logicians**: 
+1) We say beta existential graphs can represent "any first order formulae", but this is not entirely true as you do not have ability to mention objects in the domain by name using the unique symbol assigned to them, objects may exclusively referred to via the bound variables in quantifiers. 
+2) Disjunction and conditional semantics come up again here, as beta existential graphs are essentially composed
+exclusively of conjunctions and negations, with the rest of the operators defined in terms of these. Material implication $A \rightarrow B$ in 
+beta existential graphs is represented as $\lnot (A \land \lnot B)$, which do not have the same meaning in our proposed semantics. One solution
+to this is the multiple parse trees approach, and non-deterministically selecting if the graph $(A (B))$ represents $A \rightarrow B$ or $\lnot (A \land \lnot B)$, possibly depending on other factors such as the geometry of the circle.   
+
+{{< /notice >}}
+
+### Making Beta Existential Graph Magic Circles More Magical with Geometric Constraints and Modifiers
+Unfortunately beta existential graphs by themselves do not need to be very magical looking, take graphs 1-6 for example. We propose three solutions:
+* First, we can start by applying the same trick we used for flat symbolic spells: applying symbolic substitutions to atoms so that each atomic predicate corresponds to a symbol, additionally we may overload predicate symbols based on how many arguments are passed to them
+similar to the [overloaded operator symbols in APL](https://en.wikipedia.org/wiki/APL_(programming_language))(Note that the previous figure did
+not include any examples of beta existential graphs with binary predicates, see Sowa's commentary for those). 
+* Second, we may place any number of *geometric constraints* on the spell. This includes things like reducing spell mana costs increasing fizzle chances or giving bonuses depending on how many lines of symmetry or nested levels exist in the graph. 
+* Third, we may wrap the entire graph in another circle to signify the sheet of assertion.
+
+### Desirable Properties of Beta Existential Graphs with Geometric Constraints for Spells
+
+The Beta Existential Graphs with Geometric Constraints system has a few very desireable
+properties which pull in different directions:
+
+1) **Geometric Constraints can encourage simple spells:** Like how many first order logical formulae are logically equivalent,
+many beta existential graphs are logically equivalent: they cast the same spell using
+different circles. Occam's razor like constraints may be placed by the world builder to 
+encourage simpler spells where possible, by doing things like having the number of symbols (cuts, atoms, lines)
+in the spell factor into the total mana cost. 
+
+2) **Geometric Constraints can encourage complex spells:** Symmetry constraints can force mages to make spells
+more aesthetic, and include more symbols that add additional functionality than they may have otherwise to get
+bonuses or avoid penalties for this.   
+
+3) **Ambiguity in conditional and disjunctive semantics can encourage unexpected behavior mitigation:** Having multiple parse trees allows for spells who's meanings
+are ambiguous and may do something unexpected if a different parse tree than the intended one is selected. Mages are encouraged to seek out spells that minimize ambiguity perhaps determined by other geometric constraints. 
+
+These constraints do not point towards a unified meta, but rather pull what spells should look like in different directions 
+depending on situations spells should be used, how much mana a caster has, and how to prevent unintended consequences.
