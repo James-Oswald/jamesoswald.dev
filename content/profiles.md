@@ -9,7 +9,7 @@ Check me out on the following platforms.
 
 {{< fa fa-github Github "https://github.com/James-Oswald/" >}}
 
-{{< fa fa-linkedin-square LinkedIn "https://www.linkedin.com/in/joswald-/" >}}
+{{< fa fa-linkedin-square LinkedIn "https://www.linkedin.com/in/james-t-oswald/" >}}
 
 ## Research Profiles 
 
