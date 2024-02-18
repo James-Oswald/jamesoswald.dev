@@ -34,9 +34,6 @@ to change these facts is left up to the world builder, it could be mana, divine 
 that fits within the world's setting. 
 
 ## Spells as Statements
-> And God said, “Let there be light,” and there was light. --Genesis 1:3
-
-> For he spoke, and it came to be; he commanded, and it stood firm.  --Psalm 33:9
 
 The "Spells as statements of truth" paradigm aligns well with the notion of speaking the world into existence found in Abrahamic religions. 
 God in a logicist mage's world can be seen as omnipotent being making statements of truth 
