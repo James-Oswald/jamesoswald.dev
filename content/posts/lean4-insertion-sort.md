@@ -53,7 +53,7 @@ def sorted : List Nat -> Prop
 | [] => True
 --A list containing a single element is sorted
 | [_] => True 
---A list with more than 2 elements is only sorted if all
+--A list with 2 or more elements is only sorted if all
 --elements are ordered.
 | h1 :: h2 :: t => h1 ≤ h2 ∧ sorted (h2 :: t)
 ```
