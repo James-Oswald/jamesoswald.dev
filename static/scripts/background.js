@@ -106,8 +106,25 @@ function initBackground(shaders){
     window.requestAnimationFrame(drawBackground);
 }
 
-//Fetch our shaders then start the webgl program
+
+let shaders = ["mandelbrot", "static"];
+let weights = [0.95, 0.05]
+console.assert(shaders.length == weights.length, "Shaders and weights must be the same length")
+console.assert(weights.reduce((a, b) => a + b, 0) == 1, "Weights must sum to 1")
+
+//Select a shader randomly based on the weights
+let selected_shader = ""
+let r = Math.random();
+let sum = 0;
+for(let i = 0; i < shaders.length; i++){
+    sum += weights[i];
+    if(r < sum){
+        selected_shader = shaders[i];
+        break;
+    }
+}
+
 Promise.all([
-    fetch("scripts/mandelbrot.vert").then(x => x.text()),
-    fetch("scripts/mandelbrot.frag").then(x => x.text())
+    fetch("scripts/" + selected_shader + ".vert").then(x => x.text()),
+    fetch("scripts/" + selected_shader + ".frag").then(x => x.text())
 ]).then(initBackground)
