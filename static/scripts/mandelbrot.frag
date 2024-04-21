@@ -4,7 +4,7 @@ precision highp float;
 
 uniform float time;
 uniform vec2 mouse;       //0 to 1, screen cords
-uniform vec2 resolution;  //veiwport resolution
+uniform vec2 resolution;  //viewport resolution
 uniform int darkmode;     //If the hugo site is in darkmode or not
 
 vec2 windowSize = resolution.xy; //resolution.xy;
@@ -83,7 +83,7 @@ float zoomlens(float dist, float radius){
 void main() {
     mat3 transOrigin = mat3(1, 0, 0, 0, 1, 0, -windowSize.x/2.0, -windowSize.y/2.0, 1);   //center screen on (0, 0)
     mat3 scaleNorm = mat3(1.0/windowSize.x, 0, 0, 0, 1.0/windowSize.y, 0, 0, 0, 1);       //scale screen to 1, 1
-    mat3 scaleBounds = mat3(3.5, 0, 0, 0, 2.0, 0, 0, 0, 1);                               //scale screen to the optimal mandelbrot veiwing dims (THIS IS MESSING UP MOBILE)
+    mat3 scaleBounds = mat3(3.5, 0, 0, 0, 2.0, 0, 0, 0, 1);                               //scale screen to the optimal mandelbrot viewing dims (THIS IS MESSING UP MOBILE)
     if(windowSize.x < windowSize.y)
         scaleBounds = mat3(2, 0, 0, 0, 3.5, 0, 0, 0, 1);                                //Help scaling for mobile
     mat3 scaleZoom = mat3(1.0/zoom, 0, 0, 0, 1.0/zoom, 0, 0, 0, 1);
