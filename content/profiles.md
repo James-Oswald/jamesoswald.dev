@@ -7,6 +7,8 @@ Check me out on the following platforms.
 
 {{< fa fa-graduation-cap "Google Scholar" "https://scholar.google.com/citations?user=2AOWZDUAAAAJ&hl=en" >}}
 
+{{< fa fa-database "DBLP" "https://dblp.org/pid/337/9226.html">}}
+
 {{< fa fa-github Github "https://github.com/James-Oswald/" >}}
 
 {{< fa fa-linkedin-square LinkedIn "https://www.linkedin.com/in/james-t-oswald/" >}}
@@ -22,14 +24,13 @@ The best way to see a fully correct and curated list is [on my CV](/documents/CV
 
 {{< fa fa-researchgate "ResearchGate" "https://www.researchgate.net/profile/James-Oswald-6" >}}
 
-{{< fa fa-database "DBLP" "https://dblp.org/pid/337/9226.html">}}
-
-
-## Professional Profiles
+## Other Profiles
 
 {{< fa fa-address-card-o "RAIR Laboratory" "https://rair.cogsci.rpi.edu/members/graduate-students/james-oswald/">}}
 
 {{< fa fa-th "Huggingface" "https://huggingface.co/James-Oswald">}}
+
+{{< fa fa-leaf "CodeWars" "https://www.codewars.com/users/James-Oswald">}}
 
 ## Social Profiles
 
