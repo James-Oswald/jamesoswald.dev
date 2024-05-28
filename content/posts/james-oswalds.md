@@ -9,7 +9,7 @@ series = []
 draft=false
 +++
 
-In this post I enumerate the James Oswalds of the internet in May 2024 who show up above me on Google search results, as well as Google Scholar. Note that this list includes both living and dead James Oswalds. 
+In this post I enumerate the James Oswalds of the world in May 2024 who show up above me on Google search results, as well as Google Scholar. Note that this list includes both living and dead James Oswalds. 
 
 # (1) James Oswald (Scottish Writer and Farmer) Alive
 By far the most prominent James Oswald alive today is James Oswald the scottish crime writer and farmer. He has written a number of well renown book series, foremost of which is his *Inspector McLean* series. In his free time he runs a 350 acre farm in scotland and raises very cool looking cows! 
@@ -54,7 +54,7 @@ I sure feel bad for James Oswald, the link between James Oswald the Elder and Ja
 * Westminster Abby Graves: [Grave of James Oswald The Younger](https://www.westminster-abbey.org/abbey-commemorations/commemorations/james-oswald)
 
 # (4) James D. Oswald (American Political Hopeful) Alive
-James "Jim" D. Oswald is an American political hopeful for the Republican party. He has twice run for election as a Pennsylvania state representatives, being defeated both times. He works as a SVP/CRE Manager at [Truist](https://www.truist.com/), and is a veteran as well as a firefighter/EMT. 
+James "Jim" D. Oswald is an American political hopeful for the Republican party. He has twice run for election as a Pennsylvania state representative, being defeated both times. He works as a SVP/CRE manager at [Truist](https://www.truist.com/), and is a veteran as well as a firefighter/EMT. 
 
 ### References
 * Ballotpedia: [James_Oswald](https://ballotpedia.org/James_Oswald)
@@ -81,7 +81,3 @@ These James Oswald don't show up before me in Google or Google Scholar, but all 
 * [James "Jimmy" Oswald](https://en.wikipedia.org/wiki/Jimmy_Oswald) (Scottish Soccer Player) 1868 – 1948. 
 * [James Francis Oswald](https://en.wikipedia.org/wiki/James_Francis_Oswald) (British politician) 1838–1908. MP for Oldham. 
 * [James Oswald](https://en.wikipedia.org/wiki/James_Oswald_(moderator)) (Scottish Minister) 1703–1793. Served as Moderator of the General Assembly of the Church of Scotland. 
-
-
-
-
