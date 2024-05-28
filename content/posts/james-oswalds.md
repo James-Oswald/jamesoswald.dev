@@ -45,7 +45,7 @@ James Oswald the Elder was the grandfather of James Oswald The Younger who was t
 I sure feel bad for James Oswald, the link between James Oswald the Elder and James Oswald The Younger. He is lost to this blog post for not being prominent enough to make it onto Google. These three did too much to comment on in this post, but they all lived very interesting lives, you can read about them on Wikipedia. Some highlights are:
 * James Oswald The Younger was good friends with famous enlightenment thinkers David Hume and Adam Smith. 
 * James Townsend Oswald lost his seat in parliament due to bribery, ending the James Oswald MP Dynasty. His son [General John Oswald](https://en.wikipedia.org/wiki/John_Oswald_(British_Army_officer)) tried to run but lost.
-* James Townsend Oswald's daughter married [Thomas Bruce](https://en.wikipedia.org/wiki/Thomas_Bruce,_7th_Earl_of_Elgin), the brains behind the taking of the [Elign Marbles](https://en.wikipedia.org/wiki/Elgin_Marbles)(sculptures from the Parthenon and Acropolis of Athens) from Greece for the British Museum. 
+* James Townsend Oswald's daughter married [Thomas Bruce](https://en.wikipedia.org/wiki/Thomas_Bruce,_7th_Earl_of_Elgin), the brains behind the taking of the [Elgin Marbles](https://en.wikipedia.org/wiki/Elgin_Marbles)(sculptures from the Parthenon and Acropolis of Athens) from Greece for the British Museum. 
 
 ### References
 * Wikipedia: [James Oswald The Elder](https://en.wikipedia.org/wiki/James_Oswald_(elder))
