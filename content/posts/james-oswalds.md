@@ -19,8 +19,7 @@ By far the most prominent James Oswald alive today is James Oswald the scottish 
 * Twitter: [@sirbenfro](https://twitter.com/sirbenfro)
 
 # (2) James Oswald (Scottish Composer) 1710–1769
-This James Oswald deserves to have a book written about him due to the interesting life he lived. Not only was he a member of a secret music society of composers, "The Temple of Apollo", but he also eloped from Edinburgh to London with his wife. He was popular enough that a prominent poet, [Allan Ramsay](https://en.wikipedia.org/wiki/Allan_Ramsay_(poet)), was sad about him leaving and wrote the following poem about him. 
-that they wrote about it in  
+This James Oswald deserves to have a book written about him due to the interesting life he lived. Not only was he a member of a secret music society of composers, "The Temple of Apollo", but he also eloped from Edinburgh to London with his wife. He was popular enough that a prominent poet, [Allan Ramsay](https://en.wikipedia.org/wiki/Allan_Ramsay_(poet)), was sad about him leaving and wrote the following poem about him:
 > ‘Dear Oswald, could my verse as sweetly flow  
 > As notes thou softly touchest with the bow,  
 > When all the circling fair attentive hing  
