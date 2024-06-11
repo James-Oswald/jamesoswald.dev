@@ -1,7 +1,7 @@
 +++ 
 authors = ["James Oswald"]
 title = "Inference Rules in Peirce's Alpha Existential Graphs (Part 2)" 
-date = "2023-11-9"
+date = "2024-06-11"
 description = "A brief guide to inference rules in Peirce's Alpha Existential Graph system"
 math = true
 tags = ["Logic", "Existential Graphs"]
@@ -9,40 +9,44 @@ series = ["An Introduction to Peirce's Existential Graphs"]
 draft = true
 +++
 
-In this post we continue looking at the inference rules of alpha existential graphs, in particular we look at the final two rules of inference, Iteration and Deiteration, and define the distinction between equivalence rules and non-equivalence rules.  
+In this post we continue looking at the inference rules of alpha existential graphs, in particular we look at the final two rules of inference, Iteration and Deiteration, and provide some examples.
 
-Iteration corresponds to 
-
-#### Iteration
+#### Iteration and Deiteration
 
 This inference rule states we can introduce a copy of a subgraph $\phi$ at any nested level in relation to $\phi$.
 Recall that we say a subgraph $\psi$ is at a nested level with respect to $\phi$ iff $\psi$ and $\phi$ are on the same level or $\psi$ can be reached from $\phi$ by only going inside of cuts, for a refresher see [the post where I define nested levels](https://jamesoswald.dev/posts/alpha-existential-graphs-2/#nested-levels) in more detail. If we take the tree based view of AEGs, the Iteration rule says we can insert a subtree (or set of subtrees) as its own sibling, or as a descendant of any of its siblings.
 
-What does iteration correspond to in propositional calculus? Formally it corresponds to the forward direction of [absorption](https://en.wikipedia.org/wiki/Absorption_(logic)) which we state as the meta-logical propositional theorem:
+Deiteration is just the inverse of iteration. It allows us to remove a subgraph as long as a copy of that subgraph can be reached by only going outside of cuts. 
+
+For the most basic example, here we iterate $A$ onto an odd level and even level. 
+
+![](/blog/AEGIntro/IterDeiter.png)
+
+What does iteration correspond to in propositional calculus? Formally it corresponds to the forward direction of [absorption](https://en.wikipedia.org/wiki/Absorption_(logic)) which we state as a propositional theorem:
 $$
 (A \rightarrow B) \Leftrightarrow (A \rightarrow (A \land B)) 
 $$
-The forward direction of which is read as: 
+This gives us a very narrow reading of absorption, to show how this can generalize to the iteration rule, we will instead look at the following two variants of the absorption rule. These variants can be verified [via truth table](https://web.stanford.edu/class/cs103/tools/truth-table-tool/).
+The first variant allows us to distribute or pull out a conjunct from the antecedent of a conditional.
 $$
-(A \rightarrow B) \Rightarrow (A \rightarrow (A \land B)) 
+(A \land (B \rightarrow C)) \Leftrightarrow (A \land ((A \land B) \rightarrow C))
 $$
-This rule says that if $A$ implies $B$ than we know $A$ implies both $A$ and $B$. In essence absorption 
+The second variant allows us to distribute or pull out a conjunct from the consequent of a conditional.
+$$
+(A \land (B \rightarrow C)) \Leftrightarrow (A \land (B \rightarrow (A \land C)))
+$$
+The first variant corresponds to iterating/deiterating onto odd levels while the second corresponds to iterating/deiterating onto even levels. 
+These absorption rules actually correspond to the iteration and deiteration we see in the first figure!
 
+It should be clear that if we replace $B$ or $C$ with another conditional, corresponding to another nested level in an AEG, we can perform any number of applications of these absorption rule rewrites to insert the outermost $A$ into any nested level, or can perform this procedure in reverse to remove $A$ from any nested level for deiteration. We could also replace $A$ with any arbitrarily complex graph. 
 
+Here is an example of iterating and or deiterating a large graph into a further nested level (3rd level). 
 
-#### Deiteration
+![more iter](/blog/AEGIntro/IterDeiter2.png)
 
-This inference rule states we can remove a copy of a subgraph $\phi$ at any nested level in relation to $\phi$. 
+This wraps up the brief post on iteration and deiteration. In the future it would be nice to take a look at proving some common theorems with the rules we have learned so far. 
 
-### Inference Rule Types
-There are two types of inference rules, *equivalence rules* and *non-equivalence rules*. Equivalence rules will transform an existential graph $G_1$ into a logically equivalent graph $G_2$, the underlying propositional formulae for $G_1$ and $G_2$ will be logically equivalent (they would have the same truth tables). This is guaranteed because equivalence rules will never create new or remove any atomic statements from the EG. The equivalence rules are double-cut insertion, double-cut deletion, iteration, and deiteration.
-
-Non-equivalence rules are any inference rule which may transform the existential graph $G_1$ into an new EG $G_2$
-such that $G_2$ follows from $G_1$, but the new EG won't necessarily have the same underlying truth table, as we 
-may have deleted or added new atomic statements. For example, on propositional side we may have gone from a formulae with
-two distinct atomic variables $A \land B$ to a formulae with one $A$ or three $(A \land B) \lor C$. Both 
-$A$ and $(A \land B) \lor C$ are valid conclusions from $A \land B$ via and-elimination and or-introduction respectively,
-but are not equivalent. The non-equivalence rules are insertion and erasure. 
+Since the start of this series, A team of programmers at the University at Albany under my stewardship has finished a wonderful application for constructing and doing proofs with Alpha Existential Graphs. I strongly recommend [checking it out](https://github.com/RAIRLab/Peirce-My-Heart)! 
 
 ## References
 
