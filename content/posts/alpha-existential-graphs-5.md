@@ -6,7 +6,7 @@ description = "A brief guide to inference rules in Peirce's Alpha Existential Gr
 math = true
 tags = ["Logic", "Existential Graphs"]
 series = ["An Introduction to Peirce's Existential Graphs"]
-draft = true
+draft = false
 +++
 
 In this post we continue looking at the inference rules of alpha existential graphs, in particular we look at the final two rules of inference, Iteration and Deiteration, and provide some examples.
@@ -14,9 +14,7 @@ In this post we continue looking at the inference rules of alpha existential gra
 #### Iteration and Deiteration
 
 This inference rule states we can introduce a copy of a subgraph $\phi$ at any nested level in relation to $\phi$.
-Recall that we say a subgraph $\psi$ is at a nested level with respect to $\phi$ iff $\psi$ and $\phi$ are on the same level or $\psi$ can be reached from $\phi$ by only going inside of cuts, for a refresher see [the post where I define nested levels](https://jamesoswald.dev/posts/alpha-existential-graphs-2/#nested-levels) in more detail. If we take the tree based view of AEGs, the Iteration rule says we can insert a subtree (or set of subtrees) as its own sibling, or as a descendant of any of its siblings.
-
-Deiteration is just the inverse of iteration. It allows us to remove a subgraph as long as a copy of that subgraph can be reached by only going outside of cuts. 
+Recall that we say a subgraph $\psi$ is at a nested level with respect to $\phi$ iff $\psi$ and $\phi$ are on the same level or $\psi$ can be reached from $\phi$ by only going inside of cuts, for a refresher see [the post where I define nested levels](https://jamesoswald.dev/posts/alpha-existential-graphs-2/#nested-levels) in more detail. If we take the tree based view of AEGs, the Iteration rule says we can insert a subtree (or set of subtrees) as its own sibling, or as a descendant of any of its siblings. Deiteration is just the inverse of iteration. It allows us to remove a subgraph as long as a copy of that subgraph can be reached by only going outside of cuts. 
 
 For the most basic example, here we iterate $A$ onto an odd level and even level. 
 
