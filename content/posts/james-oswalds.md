@@ -6,7 +6,7 @@ description = "I enumerate the James Oswalds of the world"
 math = false
 tags = ["Random"]
 series = []
-draft=false
+draft=true
 +++
 
 In this post I enumerate the James Oswalds of the world in May 2024 who show up above me on Google search results, as well as Google Scholar. Note that this list includes both living and dead James Oswalds. 
