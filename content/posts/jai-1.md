@@ -2,7 +2,7 @@
 authors = ["James Oswald"]
 title = "Simplicity, Jai, and Joy (Jai Part 1)" 
 date = "2024-06-23"
-description = "What is Jai? lets look at its Simp library."
+description = "This post looks at Jai and creating a basic application with the Simp library."
 math = false
 tags = ["Jai", "Programming"]
 series = ["Jai"]

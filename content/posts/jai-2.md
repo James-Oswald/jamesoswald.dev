@@ -2,7 +2,7 @@
 authors = ["James Oswald"]
 title = "Embedding, Jai, and Joy (Jai Part 2)" 
 date = "2024-06-24"
-description = ""
+description = "This post looks at Jai and embedding resources into executables using the #run directive."
 math = false
 tags = ["Jai", "Programming"]
 series = ["Jai"]
@@ -79,7 +79,7 @@ So what exactly does `#run` do? It instructs the compiler to evaluate Jai code d
 For more on the `#run` directive I strongly suggest reading [the Jai community wiki article](https://jai.community/t/run-directive/145)
 {{< /notice >}}
 
-In our small example we run the `get_bitmap` call at compile time and the generated bitmap is (to my knowledge) embedded as as a `struct` with a `u8` array on the stack as the default value of local variable.
+In our small example we run the `get_bitmap` call at compile time and the generated bitmap is (to my knowledge) embedded as as a `struct` with a `u8` array on the stack as the default value of a local variable.
 
 Upon seeing `#run` in action for the first time I immediately thought of embedding as an application but honestly this does not even scratch the surface of its true power. Im looking forward to seeing and playing around with more applications. Since embedding has given me so much grief in C++ over the years and I was able to embed a resource in Jai with one word, I would say that Jai has once again brought me joy.  
 
