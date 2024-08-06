@@ -17,7 +17,7 @@ in the foot with C++, so safety at the cost of freedom and simplicity seemed lik
 I wasn't afraid to express this either, I had a lot of fun making jokes about how hard it is to code
 rust approved linked lists. 
 
-{{ < tweet 1819716789124681948 >}}
+{{< tweet "1819716789124681948" >}}
 
 Recently [my friend Brandon](https://brandonrozek.com) started working at AWS Research and has been singing Rust's praises, 
 so I figured that for the first time in my life I would give it a serious look. I've been looking to
@@ -95,6 +95,49 @@ int main() {
 }
 ```
 We could do something similar in C++, but I would like to show off how awful std::visit really is.
+```cpp
+#include<variant>
+#include<string>
+#include<utility>
+#include<algorithm>
+#include<iostream>
+
+//Forced to wrap variant in a struct to allow recursive reference 
+struct Formula{
+    std::variant<
+        std::string,
+        Formula*,
+        std::pair<Formula*, Formula*>
+    > data;
+};
+
+struct vistors{
+    int operator()(std::string s){
+        return 1;
+    }
+    int operator()(Formula* f){
+        return std::visit(vistors(), f->data) + 1;
+    }
+    int operator()(std::pair<Formula*, Formula*> p){
+        return std::max(std::visit(vistors(), p.first->data), 
+                        std::visit(vistors(), p.second->data)) + 1;
+    }
+};
+
+int depth(Formula* formula){
+    //We could use lambdas if this wasn't a recursive struct
+    return std::visit(vistors(), formula->data);
+}
+
+int main(){
+    Formula a = {{"A"}};
+    Formula b = {{"B"}};
+    Formula notb = {&b};
+    Formula AandNotB = {std::make_pair(&a, &notb)};
+    std::cout<<depth(&AandNotB)<<std::endl;
+    return 0;
+}
+```
 
 
 ### 2) Derive attribute

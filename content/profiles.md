@@ -16,7 +16,7 @@ Check me out on the following platforms.
 ## Research Profiles 
 
 Please note the following platforms may have incorrect information on my publications.
-The best way to see a fully correct and curated list is [on my CV](/documents/CV.pdf).
+The best way to see a fully correct and curated list is on my Google Scholar or [DBLP](https://dblp.org/pid/337/9226.html).
 
 {{< fa fa-orcid "ORCID" "https://orcid.org/0000-0003-1195-4793" >}}
 
@@ -25,6 +25,8 @@ The best way to see a fully correct and curated list is [on my CV](/documents/CV
 {{< fa fa-researchgate "ResearchGate" "https://www.researchgate.net/profile/James-Oswald-6" >}}
 
 ## Other Profiles
+
+{{< fa fa-wikidata "Wikidata" "https://www.wikidata.org/wiki/Q126162861">}}
 
 {{< fa fa-address-card-o "RAIR Laboratory" "https://rair.cogsci.rpi.edu/members/graduate-students/james-oswald/">}}
 
