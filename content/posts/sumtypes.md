@@ -95,7 +95,7 @@ int main() {
 [Run it](https://godbolt.org/#g:!((g:!((g:!((h:codeEditor,i:(filename:'1',fontScale:14,fontUsePx:'0',j:1,lang:___c,selection:(endColumn:2,endLineNumber:34,positionColumn:2,positionLineNumber:34,selectionStartColumn:2,selectionStartLineNumber:34,startColumn:2,startLineNumber:34),source:'%23include+%3Cstdio.h%3E%0A%0Astruct+Formula%7B%0A++++enum+Type+%7BATOM,+NOT,+AND%7D+type%3B%0A++++union%7B%0A++++++++char+atom%3B%0A++++++++struct+Formula*+not%3B%0A++++++++struct+%7B%0A++++++++++++struct+Formula*+l%3B%0A++++++++++++struct+Formula*+r%3B%0A++++++++%7D+and%3B%0A++++%7D%3B%0A%7D%3B%0A%0Aint+max(int+a,+int+b)%7B%0A++++return+a+%3E+b+%3F+a+:+b%3B%0A%7D%0A%0Aint+depth(struct+Formula*+formula)%7B%0A++++switch(formula-%3Etype)%7B%0A++++++++case+ATOM:+return+1%3B%0A++++++++case+NOT:+return+depth(formula-%3Enot)+%2B+1%3B%0A++++++++case+AND:+return+max(depth(formula-%3Eand.l),+depth(formula-%3Eand.r))+%2B+1%3B%0A++++%7D%0A%7D%0A%0Aint+main()+%7B%0A++++struct+Formula+a+%3D+%7BATOM,+atom:+!'A!'%7D%3B%0A++++struct+Formula+b+%3D+%7BATOM,+atom:+!'B!'%7D%3B%0A++++struct+Formula+notB+%3D+%7BNOT,+not:+%26b%7D%3B%0A++++struct+Formula+AandNotB+%3D+%7BAND,+and:%7B%26a,+%26notB%7D%7D%3B%0A++++printf(%22%25d%22,+depth(%26AandNotB))%3B%0A++++return+0%3B%0A%7D'),l:'5',n:'1',o:'C+source+%231',t:'0')),k:50.11806375442739,l:'4',m:100,n:'0',o:'',s:0,t:'0'),(g:!((h:executor,i:(argsPanelShown:'1',compilationPanelShown:'0',compiler:cg141,compilerName:'',compilerOutShown:'0',execArgs:'',execStdin:'',fontScale:14,fontUsePx:'0',j:1,lang:___c,libs:!(),options:'',overrides:!(),runtimeTools:!(),source:1,stdinPanelShown:'1',wrap:'1'),l:'5',n:'0',o:'Executor+x86-64+gcc+14.1+(C,+Editor+%231)',t:'0')),k:49.88193624557261,l:'4',n:'0',o:'',s:0,t:'0')),l:'2',n:'0',o:'',t:'0')),version:4)
 
 We could do something similar to C in C++, with a custom tagged union, but I would like to show off the state of modern C++20 and 
-what the standard library designers would prefer we do using `std::vist`.
+what the standard library designers would prefer we do using `std::visit`.
 ```cpp
 #include<variant>
 #include<string>
@@ -112,34 +112,33 @@ struct Formula{
     > data;
 };
 
-struct vistors{
-    int operator()(std::string s){
-        return 1;
-    }
-    int operator()(Formula* f){
-        return std::visit(vistors(), f->data) + 1;
-    }
-    int operator()(std::pair<Formula*, Formula*> p){
-        return std::max(std::visit(vistors(), p.first->data), 
-                        std::visit(vistors(), p.second->data)) + 1;
-    }
-};
-
 int depth(Formula* formula){
     //We could use lambdas if this wasn't a recursive struct
-    return std::visit(vistors(), formula->data);
+    struct Visitors{
+        int operator()(std::string s){
+            return 1;
+        }
+        int operator()(Formula* f){
+            return std::visit(Visitors(), f->data) + 1;
+        }
+        int operator()(std::pair<Formula*, Formula*> p){
+            return std::max(std::visit(Visitors(), p.first->data), 
+                            std::visit(Visitors(), p.second->data)) + 1;
+        }
+    };
+    return std::visit(Visitors(), formula->data);
 }
 
 int main(){
-    Formula a = {{"A"}};
-    Formula b = {{"B"}};
+    Formula a = {"A"};
+    Formula b = {"B"};
     Formula notb = {&b};
     Formula AandNotB = {std::make_pair(&a, &notb)};
     std::cout<<depth(&AandNotB)<<std::endl;
     return 0;
 }
 ```
-[Run it](https://godbolt.org/#z:OYLghAFBqd5QCxAYwPYBMCmBRdBLAF1QCcAaPECAMzwBtMA7AQwFtMQByARg9KtQYEAysib0QXACx8BBAKoBnTAAUAHpwAMvAFYTStJg1DIApACYAQuYukl9ZATwDKjdAGFUtAK4sGIAMwAHKSuADJ4DJgAcj4ARpjEEv6kAA6oCoRODB7evgHBaRmOAuGRMSzxiVzJdpgOWUIETMQEOT5%2BQbaY9sUMjc0EpdFxCUm2TS1teZ0KE4MRwxWj1QCUtqhexMjsHCYaAILm/hHI3lgm/m4Abs14hgQX2HuHZscMp17nl7PEEcCPzyOJzOmAubi8jlohAAngCDkD3iCwWJgCRCAgWHCXm8Pl83E4fphWFjngB6UkAMRI23QAGoiLSAO7EJgpWk3X73WkRWlMWk/LwOemoXm0WioRm04h1TYZK6YKWYKgJRjbWnPAVCqnEFheAwmADsVgOtNN/II6BAIA5d0EYOeZsd5stIB%2Bf1IDqdpu1uoMACoPSavc6rSkmHhiGCfXqmAHadH/VjHY9aegmE0LsbDgaACKZwEHTUEdl4WYkBSGrOOiLF1ApBLpkgQFYQWYut1GfkrSuer3SgibBi0rj5oOmw15sfcwS0usNojEZsQBOx2lUbtG3tO/uDkPW0uECBXUsLhTN0hrgC0jzTTRW6ssw9H%2B2Tua3Ndn9ZZC6XbdD4cjS4VzjYCUxSDcq2DHdiCHP8QBYJhVFbC0rWPIojxPctz1pFIADoaGIWZr38XB0yYNZ1SnYNqKdOC0MPNDT2wvClDQBh0GI0i73vawn38SDxzfeE334gt9g/LAUgIBBlxIX1V34HUYwgrdyQAdQVNA9TpLwlFpAwKjTBRuSoekEFLJkmAUBgwA4Ys%2BWlZBZTweVzWIQUHinaDYJQ/d0MYrCKMU%2BTONvcjnwnMSPwQiJmx7KcV15dV/BzdVN03MwzBeMxIpEgT4zkmNaViZLUp7DLLHMHK3zyrdEoYVACBKi4yoygA2WJItEhLCoMWl9kMdAokaixSrSiw4IQgBrTAAH0wwjCBzDapgL2Whqmo3PNupfM04K0h5LjBSTpKWsw2oG9jhoICxuyO75fNcWhn0dbzaQ0CLcw4NZaE4ABWXg/G4XhUE4NxrF4hQNi2BUjh4UgCE0b61imkA/o0XCuC4QINDa/wDT%2ByRJDMA1/AATn0ThJF4FgJA0DRSCBrRSFBjheAUEAGcRjgtDWOBYCQTBVBlBdyEoZpgAUZRDG6IQEAlIH4bQFgUjodMsmlyJaDlhWkdIZXVfoRJgCkLh9dQFW6ASKJWB2XgDat4gAHkIR1xkmd4IW6n2YhJc4T3heQRp8CB3h%2BEEEQxHYKQZEERQVHUHmdD0AwjBQCHLH0PBYg5yA1jrXoObZ9ZNm2PQ2wiTXZfl93OHh5lWTr77KY4AHGb11nsEDiESFpVRAjay82skWlgGQZBh0kTHaQgcHKsz2lcEIXu4ZWXhud5lGQEkMncMCQIuDJ/w2rMSQ/r%2Bg1zrN36OGp9uk5Z/3bE5hGkZWH7ODMQGO6fjfkdIeUhEsjbyAA%3D%3D)
+[Run it](https://godbolt.org/#z:OYLghAFBqd5QCxAYwPYBMCmBRdBLAF1QCcAaPECAMzwBtMA7AQwFtMQByARg9KtQYEAysib0QXACx8BBAKoBnTAAUAHpwAMvAFYTStJg1DIApACYAQuYukl9ZATwDKjdAGFUtAK4sGe1wAyeAyYAHI%2BAEaYxCAAzLGkAA6oCoRODB7evnrJqY4CQSHhLFEx8baY9vkMQgRMxASZPn5cFVXptfUEhWGR0XEJCnUNTdmtQ109xaUDAJS2qF7EyOwcJhoAguaxwcjeWCaxbgBu9XiGBIfY61tmOwx7XgdHQ8TBwFc327v7mIduXkctEIAE9Pptvg9fv8xMASIQECxwbd7o9nm4nK9MKxkTcAPR4gBiJBW6AA1EQyQB3YhMRJk05vC5k4Jkphk15eBwU1Bs2i0VBUsnETDIJapY6YYWYKjRRgrMk3Tnc4nEFheAwmADsVk2ZP1HII6BAIEZ50E/xuButhuNIFe71IVpt%2BtV6oMAConXqXbaTYkmHhiP83RqmF6yaHPcjrVcyegmHVDrqtlqACLJr6bYIEeOYRIEBAQKPhsn8NVh2balPWgkAdSlaA15K8SjJBhKCYULKoFIQeG7VKYCgYYA4ufZIrFxAlUuVlx9%2BvnZIAagPCCQFNXnS6c2TUIloomSBBZhAhnaHUYOVWdTvffqRQQlgwyVxM4ubdqM5/rXuD0eRDEKexYkO6pZULeNYPgaT4vn6prrgQEBrnkm6nqQZYALRXAmdSzIqlhvh%2BGwPt%2B95/oI%2B6HrSQEgRe/qBsGRwlhGrFxokUEUb6cHEK%2BDEgCwTCqOeRomscSEoUh6HzGSiQAHQ0DOBA4bEuCJkwsncTBOkGgJEl5FJaEzhhcnyUoaAMOgqnqfhBHWMRsTQS65GfuRTn3rx/FiYhhmoRuJmyeW4E2Xhmkka5WzZlRQnBKe26fiWbKKrEaaKneZhmLcZjuc5kZgWGZIRClaXbplViZbl95JQwqAEMVhylRlABsERVYlBUGGSGyGOgoR1RYJXpRYAlCQA1pgAD6AZBhA5jNUwmHzbV9W3hmHmfgJTaXEc/xYAWRbzT1Vn9QQFhVrtLw%2Ba4tAkdaXlkhoEXphw8y0JwACsvB%2BNwvCoJwbjWA5CiLMsUrbDwpAEJor3zGNIAfRo8lcFwAAcGjNbEWofZIkhmFqsQAJz6Jwki8CwEgaBopA/VopD/RwvAKCA1PQxwWjzHAsBIJgqiioCJDkJQ9TAAoyiGJUQgIIKP2Q2gLCJHQibpOLIS0FLMsw6Q8uK/QMTAFIrQ63Q0ShKwqy8MbesAPKAhrVK07wvOihsxCi5wTt88gtT4D9vD8IIIhiOwUgyIIigqOo7M6HoBhGCgQOWPoeARMzkDzAe1TM4z9OSsQbxYGnGHEF4gh4GwAAqqCeEX8wg0sKx6BewSq5L0sO5wkM0nSnevSTHBfTTWsM9gXsC8QZKqKjzVYc1khksAyDIG%2BkjI2SECA5Y1iYbgAWEbEXCzLwbMc3DICSIT8mo6jXCE7EzVmJIH0fVqZjNa070cGTQ/R/THu2CzKGMNZhvU4GYb6w9/4n1hqQPOqRnCSCAA%3D%3D%3D)
 
 Finally lets get a breath of fresh air and look at how Rust does it...
 ```rs
