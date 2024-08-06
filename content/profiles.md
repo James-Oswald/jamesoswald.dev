@@ -26,8 +26,6 @@ The best way to see a fully correct and curated list is on my Google Scholar or 
 
 ## Other Profiles
 
-{{< fa fa-wikidata "Wikidata" "https://www.wikidata.org/wiki/Q126162861">}}
-
 {{< fa fa-address-card-o "RAIR Laboratory" "https://rair.cogsci.rpi.edu/members/graduate-students/james-oswald/">}}
 
 {{< fa fa-th "Huggingface" "https://huggingface.co/James-Oswald">}}
