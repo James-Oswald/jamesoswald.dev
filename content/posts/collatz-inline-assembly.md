@@ -93,7 +93,7 @@ int main(){
 }
 ```
 
-Compiling on my hardware using GCC at various optimization levels, I did 5 runs and took the lowest for each value.
+Compiling on my hardware using GCC at various optimization levels, I did 5 runs and took the lowest run-time for each value.
 | Algo | O0 | O1 | O2 | O3 |
 |------|----|----|----|----|
 |collatzBasic      | 0.104199 | 0.161694 | 0.114190 | 0.101471 |

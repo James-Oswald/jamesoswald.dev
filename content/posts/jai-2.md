@@ -27,7 +27,7 @@ unsigned char foo[] = {
 unsigned int foo_len = 47;
 ```
 The issues begin to arise when you have resources that mutate between builds and want to do this in a cross platform way (tools like `xxd` are platform dependent). I've discussed this at length with a friend of mine who at the time was on the the CMake development team, and I was shocked to hear 
-that when it comes to doing this in enterprise scale applications, almost everyone is rolling their own Cmake solution or trying and borrow and adapt someone elses solution (see [here](https://jonathanhamberg.com/post/cmake-file-embedding/) for a CMake solution). And thus the nightmare begins. 
+that when it comes to doing this in enterprise scale applications, almost everyone is rolling their own CMake solution or trying and borrow and adapt someone elses solution (see [here](https://jonathanhamberg.com/post/cmake-file-embedding/) for a CMake solution). Thus the nightmare begins. 
 
 ### Can Jai Help?
 
