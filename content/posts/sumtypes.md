@@ -4,7 +4,7 @@ title = "A Basic Inductive Type Comparison: Rust, Lean, C, C++"
 date = "2024-08-06"
 description = "We talk about sum types, inductive types, and give examples"
 draft = false
-tags = ["Programming", "Rust", "C", "C++", "Lean"]
+tags = ["Programming", "Rust", "C", "C++", "Lean4"]
 series = []
 +++
 
