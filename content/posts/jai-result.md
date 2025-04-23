@@ -44,7 +44,7 @@ err :: ($T : Type, err : $E) -> Result(T, E) #expand {
 ```
 
 ## The try macro: Emulating the ? Operator
-Rust’s ? operator simplifies error handling by automatically returning from a function if an error is encountered. Here, we mimic that behaver with a try macro that makes use of Jai's ``return` to return from the outer scope. Credit to [SogoCZE](https://github.com/SogoCZE) for this idea.
+Rust’s ? operator simplifies error handling by automatically returning from a function if an error is encountered. Here, we mimic that behaver with a try macro that makes use of Jai's ``` `return ``` to return from the outer scope. Credit to [SogoCZE](https://github.com/SogoCZE) for this idea.
 ```
 //Rust's ? operator
 try :: (result: Result($T, $E)) -> T #expand {
