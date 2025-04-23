@@ -1,7 +1,7 @@
 
 +++ 
 authors = ["James Oswald"]
-title = "Anticode: A Good Minimalist Code Of Conduct for Small Open Source Projects" 
+title = "Anticode: A Good Minimalist Code Of Conduct" 
 date = "2023-11-03"
 description = ""
 math = false

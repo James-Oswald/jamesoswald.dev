@@ -9,6 +9,11 @@ series = ["Jai"]
 draft= false
 +++
 
+{{< notice warning >}}
+As of publishing this post, Jai is in active development with regular breaking changes. Any information or code in this post may be outdated or deprecated!
+{{< /notice >}}
+
+
 [Last post](/posts/jai-1) we looked at Jai's powerful standard library and probably praised it too much for making what others would probably call a bad decision: including too much specific stuff in the standard. But you know what, it brought me a lot of joy to be able to do something like that out of the box, so thats ok. In this post we'll look at another gripe I have with C++ and see if Jai can save us from it. 
 
 ### Rage Against C/C++ Resource Embedding Hell

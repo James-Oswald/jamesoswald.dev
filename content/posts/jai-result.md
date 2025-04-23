@@ -1,6 +1,6 @@
 +++
 authors = ["James Oswald"]
-title = "Emulating Rust's Result type and ? Operator in Jai with Metaprogramming" 
+title = "Emulating Rust's Result and ? in Jai with Metaprogramming" 
 date = "2025-02-02"
 description = "This post looks at how to emulate Rust's Results in Jai"
 math = false
@@ -9,8 +9,12 @@ series = ["Jai"]
 draft= false
 +++
 
+{{< notice warning >}}
+As of publishing this post, Jai is in active development with regular breaking changes. Any information or code in this post may be outdated or deprecated!
+{{< /notice >}}
+
 {{< notice note >}}
-This Post was originally written February 2nd, 2025 but released April 22nd, 2025.
+This Post was originally written February 2nd, 2025 but only published April 22nd, 2025.
 I held onto it and forgot about it in my drafts folder because it did not feel very original, 
 particularly after borrowing so much from SogoCZE, but decided to release it anyway as there does
 not seem to be any public resources on how something like this may be accomplished.  

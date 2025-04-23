@@ -1,6 +1,6 @@
 +++ 
 authors = ["James Oswald"]
-title = "Worldbuilding Formal and Aesthetic Magic Systems: A Logicist Mage’s Manifesto" 
+title = "Worldbuilding Formal and Aesthetic Magic Systems" 
 date = "2024-01-04"
 description = "In this work, we present a logicist framework for constructing and worldbuilding magic systems in which spells are intellectually meaningful, rigorously defined, and aesthetic."
 math = true
@@ -8,6 +8,10 @@ tags = ["Worldbuilding", "Opinion", "Logic", "Automated Planning", "Existential 
 series = []
 draft=false
 +++
+
+{{< notice note >}}
+Originally published under the title "Worldbuilding Formal and Aesthetic Magic Systems: A Logicist Mage’s Manifesto", renamed in April 2025.
+{{< /notice >}}
 
 # A Logicist Mage's Manifesto  
 
