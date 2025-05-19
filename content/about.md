@@ -16,6 +16,6 @@ Before I was a PhD student at RPI, I was an undergraduate computer science and m
 ### Other Research Areas
 * [Logic Based Artificial Intelligence](https://plato.stanford.edu/entries/logic-ai/): How can we create AI that performs complex reasoning and generate explanations of their reasoning?
   * [Many Dimensional Modal Logics](https://plato.stanford.edu/entries/phil-multimodallogic/): What are the best underlying representations for modality in AI systems? How can we have AI systems reason about obligation, possibility, belief, time, and ontology in a real time computationally feasible manner? 
-  * [Automated Reasoning](https://en.wikipedia.org/wiki/Automated_reasoning) How can we integrate aut
+  * [Automated Reasoning](https://en.wikipedia.org/wiki/Automated_reasoning)
 * [Machine Learning](https://en.wikipedia.org/wiki/Machine_learning): Can we integrate strong advances in machine learning for natural language processing and computer vision with logic based AI agents to produce general purpose hybrid agents?
 * [Cognitive Architectures](https://en.wikipedia.org/wiki/Cognitive_architecture): Can we create intelligent agents through computational models of parts of the human mind? 
