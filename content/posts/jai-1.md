@@ -9,6 +9,10 @@ series = ["Jai"]
 draft= false
 +++
 
+{{< notice warning >}}
+As of publishing this post, Jai is in active development with regular breaking changes. Any information or code in this post may be outdated or deprecated!
+{{< /notice >}}
+
 ## On Performance
 While not mentioned much on my blog, back in the day (circa 2018) I considered myself something of a programming languages junkie and C/C++ evangelist, who's job was to purge the internet of unholy Python users. While I've since mellowed out, and have myself become a regular Python user, I think at least some of my crusade for C/C++ was well motivated, particularly my favorite talking point: performance. 
 
