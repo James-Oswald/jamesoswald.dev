@@ -108,7 +108,7 @@ function initBackground(shaders){
 
 
 let shaders = ["mandelbrot", "static"];
-let weights = [0.95, 0.05]
+let weights = [1.0, 0.0]
 console.assert(shaders.length == weights.length, "Shaders and weights must be the same length")
 console.assert(weights.reduce((a, b) => a + b, 0) == 1, "Weights must sum to 1")
 
