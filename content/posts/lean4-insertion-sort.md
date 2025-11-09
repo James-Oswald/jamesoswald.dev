@@ -34,7 +34,7 @@ def sInsert (n : Nat) : List Nat -> List Nat
 --The insertion sort algo 
 def sort : List Nat -> List Nat
 | [] => []
-| h::t => sInsert (sort t) h
+| h::t => sInsert h (sort t)
 ```
 
 # Specification
