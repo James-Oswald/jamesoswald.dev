@@ -36,7 +36,7 @@ document.onload = function(e){
 }
 
 
-gl = canvas.getContext('webgl');
+gl = canvas.getContext('webgl2');
 gl.viewport(0, 0, canvas.width, canvas.height);
 gl.clearColor(0.5, 0.5, 0.5, 0.9);
 
@@ -106,9 +106,8 @@ function initBackground(shaders){
     window.requestAnimationFrame(drawBackground);
 }
 
-
-let shaders = ["mandelbrot", "static"];
-let weights = [1.0, 0.0]
+let shaders = ["mandelbrot", "static", "littlewood"];
+let weights = [0.5, 0.0, 0.5]
 console.assert(shaders.length == weights.length, "Shaders and weights must be the same length")
 console.assert(weights.reduce((a, b) => a + b, 0) == 1, "Weights must sum to 1")
 
@@ -123,6 +122,7 @@ for(let i = 0; i < shaders.length; i++){
         break;
     }
 }
+console.log("Selected shader: " + selected_shader);
 
 Promise.all([
     fetch("scripts/" + selected_shader + ".vert").then(x => x.text()),
