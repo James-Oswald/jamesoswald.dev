@@ -37,7 +37,7 @@ $$
 \exists C > 0, \exists x_0, \forall x > x_0, f(x) \le g(x) + C
 $$
 
-In short the bounding condition is the one sided version of the standard big O notation, where we only care about the upper bound of $f(x)$ in terms of $g(x)$, rather than both an upper and lower bound. Due to this, we have that $f(x) = O(g(x))$ implies that $f(x) \le g(x) + O(1)$, but the converse is not necessarily true.
+In short the bounding condition is the one sided version of the standard big O notation, where we only care about the upper bound of $f(x)$ in terms of $g(x)$, rather than both an upper and lower bound. Due to this, we have that $f(x) = g(x) + O(1)$ implies that $f(x) \le g(x) + O(1)$, but the converse is not necessarily true.
 
 
 
