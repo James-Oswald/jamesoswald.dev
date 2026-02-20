@@ -8,7 +8,7 @@ tags = ["Computer Science", "Mathematics"]
 series = []
 +++
 
-Recently I came across asympotics inequalities of the form $f(x) \le g(x) + O(1)$ in Li and Vitanyi's [An Introduction to Kolmogorov Complexity and Its Applications](https://link.springer.com/book/10.1007/978-3-030-11298-1), where this notion is used to discuss bounds on the complexity of strings. In this post I give a brief definition of what this notation means and how it relates to standard asymptotic notation. Particulary, I'm only going to talk about the case of $O(1)$, but the same ideas can be extended to $O(h(x))$ for any function $h(x)$.
+Recently I came across asympotic inequalities of the form $f(x) \le g(x) + O(1)$ in Li and Vitanyi's [An Introduction to Kolmogorov Complexity and Its Applications](https://link.springer.com/book/10.1007/978-3-030-11298-1), where this notion is used to discuss bounds on the complexity of strings. In this post I give a brief definition of what this notation means and how it relates to standard asymptotic notation. Particulary, I'm only going to talk about the case of $O(1)$, but the same ideas can be extended to $O(h(x))$ for any function $h(x)$.
 
 ### Standard Big O Asymptotics
 
@@ -37,7 +37,7 @@ $$
 \exists C > 0, \exists x_0, \forall x > x_0, f(x) \le g(x) + C
 $$
 
-In short the bounding condition is the one sided version of the standard big O notation, where we only care about the upper bound of $f(x)$ in terms of $g(x)$, rather than both an upper and lower bound. Due to this, we have that $f(x) \le g(x) + O(1)$ implies that $f(x) = O(g(x))$, but the converse is not necessarily true. 
+In short the bounding condition is the one sided version of the standard big O notation, where we only care about the upper bound of $f(x)$ in terms of $g(x)$, rather than both an upper and lower bound. Due to this, we have that $f(x) = O(g(x))$ implies that $f(x) \le g(x) + O(1)$, but the converse is not necessarily true.
 
 
 
