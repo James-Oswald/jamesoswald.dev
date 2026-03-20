@@ -8,6 +8,10 @@ tags = ["Lean4", "Formal Methods", "Algorithms"]
 series = []
 +++
 
+{{< notice warning >}}
+3/20/2026 Update: This post was written in early 2024 before the release of the `grind` tactic, which greatly simplifies some of the proofs. Readers interested in a more modern survey of approaches to proving the correctness of insertion sort in Lean 4 should check out [this excelent post](https://web.archive.org/web/20260320205908/https://unnamed.website/posts/evolution-lean-programmer/) by [Anthony Wang](https://unnamed.website).
+{{< /notice >}}
+
 # Background
 
 When I first started learning Lean almost a year ago now, in the first week after proving the correctness of simple list operations such as insertion and appending, I decided it would be a fun challenge to try and prove the correctness of a sorting algorithm in Lean3. I failed spectacularly. I asked my colleague [Brandon Rozek](https://brandonrozek.com/) about this, and he pointed me to the [Software Foundations](https://softwarefoundations.cis.upenn.edu/) book series on formalizing and proving properties about algorithms in Coq. He also told me that for a beginner sorting is quite a challenge, they do not cover it until the third book in the series! (For those interested their chapter with the proof of correctness for insertion sort in Coq [is available online here](https://softwarefoundations.cis.upenn.edu/vfa-current/Sort.html)). 
