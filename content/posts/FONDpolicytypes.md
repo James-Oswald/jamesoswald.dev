@@ -107,7 +107,7 @@ We can encode this domain in PDDL as follows:
 
 {{</details>}}
 
-# Weak Policies
+## Weak Policies
 
 A weak policy is one that guarantees reaching the goal in at least one possible execution, but not necessarily in all executions. In our example, a weak policy could involve attempting the risky jump, since there is a chance of reaching the goal immediately, even though it might also lead to a dead end. IE the policy
 $$
@@ -122,7 +122,6 @@ $$
 \begin{aligned}
 \pi(s0) &= \text{detour-start} \\\\
 \pi(s2) &= \text{detour-end} \\\\
-\pi(s1) &= \text{safe-step}
 \end{aligned}
 $$
 
