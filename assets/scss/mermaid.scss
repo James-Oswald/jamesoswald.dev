@@ -1,0 +1,61 @@
+.mermaid {
+  --mermaid-foreground: #212121;
+  --mermaid-node-background: #e0e0e0;
+  --mermaid-label-background: #fafafa;
+
+  .flowchart-link {
+    stroke: var(--mermaid-foreground) !important;
+  }
+
+  marker path,
+  .marker,
+  .arrowheadPath {
+    fill: var(--mermaid-foreground) !important;
+    stroke: var(--mermaid-foreground) !important;
+  }
+
+  .node rect,
+  .node circle,
+  .node ellipse,
+  .node polygon,
+  .node path {
+    fill: var(--mermaid-node-background) !important;
+    stroke: var(--mermaid-foreground) !important;
+  }
+
+  .nodeLabel,
+  .label,
+  text {
+    color: var(--mermaid-foreground) !important;
+    fill: var(--mermaid-foreground) !important;
+  }
+
+  .edgeLabel {
+    color: var(--mermaid-foreground) !important;
+    background-color: var(--mermaid-label-background) !important;
+  }
+
+  .edgeLabel rect,
+  .labelBkg {
+    fill: var(--mermaid-label-background) !important;
+    opacity: 1 !important;
+  }
+}
+
+@mixin mermaid-dark {
+  .mermaid {
+    --mermaid-foreground: #dadada;
+    --mermaid-node-background: #424242;
+    --mermaid-label-background: #212121;
+  }
+}
+
+body.colorscheme-dark {
+  @include mermaid-dark;
+}
+
+body.colorscheme-auto {
+  @media (prefers-color-scheme: dark) {
+    @include mermaid-dark;
+  }
+}
