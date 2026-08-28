@@ -4,3 +4,18 @@
     position:absolute;
     z-index:-1;
 }
+
+.background-canvas-enabled .homepage-identity {
+    --homepage-identity-outline: rgba(255, 255, 255, 0.9);
+    -webkit-text-stroke: 0.75px var(--homepage-identity-outline);
+    paint-order: stroke fill;
+    text-shadow:
+        -1px 0 var(--homepage-identity-outline),
+        0 1px var(--homepage-identity-outline),
+        1px 0 var(--homepage-identity-outline),
+        0 -1px var(--homepage-identity-outline);
+}
+
+body.colorscheme-dark .background-canvas-enabled .homepage-identity {
+    --homepage-identity-outline: rgba(0, 0, 0, 0.9);
+}

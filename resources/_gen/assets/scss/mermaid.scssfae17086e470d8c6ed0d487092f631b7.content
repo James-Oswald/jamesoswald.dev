@@ -1,0 +1,43 @@
+.mermaid {
+  --mermaid-foreground: #212121;
+  --mermaid-node-background: #e0e0e0;
+  --mermaid-label-background: #fafafa; }
+  .mermaid .flowchart-link {
+    stroke: var(--mermaid-foreground) !important; }
+  .mermaid marker path,
+  .mermaid .marker,
+  .mermaid .arrowheadPath {
+    fill: var(--mermaid-foreground) !important;
+    stroke: var(--mermaid-foreground) !important; }
+  .mermaid .node rect,
+  .mermaid .node circle,
+  .mermaid .node ellipse,
+  .mermaid .node polygon,
+  .mermaid .node path {
+    fill: var(--mermaid-node-background) !important;
+    stroke: var(--mermaid-foreground) !important; }
+  .mermaid .nodeLabel,
+  .mermaid .label,
+  .mermaid text {
+    color: var(--mermaid-foreground) !important;
+    fill: var(--mermaid-foreground) !important; }
+  .mermaid .edgeLabel {
+    color: var(--mermaid-foreground) !important;
+    background-color: var(--mermaid-label-background) !important; }
+  .mermaid .edgeLabel rect,
+  .mermaid .labelBkg {
+    fill: var(--mermaid-label-background) !important;
+    opacity: 1 !important; }
+
+body.colorscheme-dark .mermaid {
+  --mermaid-foreground: #dadada;
+  --mermaid-node-background: #424242;
+  --mermaid-label-background: #212121; }
+
+@media (prefers-color-scheme: dark) {
+  body.colorscheme-auto .mermaid {
+    --mermaid-foreground: #dadada;
+    --mermaid-node-background: #424242;
+    --mermaid-label-background: #212121; } }
+
+/*# sourceMappingURL=mermaid.css.map */
