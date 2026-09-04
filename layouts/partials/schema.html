@@ -1,0 +1,151 @@
+{{- /*
+  Site-wide Schema.org graph.
+
+  Keep the stable entity IDs below consistent: pages refer to these nodes instead
+  of emitting disconnected copies of the same person or website.
+*/ -}}
+{{- $homeURL := .Site.Home.Permalink -}}
+{{- $personID := printf "%s#person" $homeURL -}}
+{{- $websiteID := printf "%s#website" $homeURL -}}
+{{- $pageURL := .Permalink -}}
+{{- with .Params.canonicalUrl -}}
+  {{- $pageURL = . -}}
+{{- end -}}
+{{- $pageID := printf "%s#webpage" $pageURL -}}
+{{- $imageURL := "images/avatar.png" | absURL -}}
+{{- $language := .Site.Language.Lang | default "en" -}}
+
+{{- $description := .Description | default .Site.Params.description -}}
+{{- if and (not .IsHome) (not .Description) -}}
+  {{- with .Summary -}}
+    {{- $description = . | plainify | htmlUnescape | strings.TrimSpace | truncate 200 -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $personRef := dict "@id" $personID -}}
+{{- $websiteRef := dict "@id" $websiteID -}}
+{{- $pageRef := dict "@id" $pageID -}}
+
+{{- $person := dict
+  "@type" "Person"
+  "@id" $personID
+  "name" .Site.Params.author
+  "url" $homeURL
+  "image" (dict "@type" "ImageObject" "url" $imageURL)
+  "mainEntityOfPage" (dict "@id" (printf "%s#webpage" $homeURL))
+  "identifier" (dict "@type" "PropertyValue" "propertyID" "Wikidata" "value" "Q126162861" "url" "https://www.wikidata.org/wiki/Q126162861")
+  "sameAs" (slice
+    "https://www.wikidata.org/wiki/Q126162861"
+    "https://orcid.org/0000-0003-1195-4793"
+    "https://github.com/James-Oswald/"
+    "https://www.linkedin.com/in/james-t-oswald/"
+    "https://scholar.google.com/citations?user=2AOWZDUAAAAJ&hl=en"
+    "https://dblp.org/pid/337/9226.html"
+    "https://www.semanticscholar.org/author/James-T.-Oswald/51290502"
+    "https://www.researchgate.net/profile/James-Oswald-6"
+  )
+  "jobTitle" "PhD Student and Graduate Researcher"
+  "affiliation" (slice
+    (dict "@type" "CollegeOrUniversity" "name" "Rensselaer Polytechnic Institute" "url" "https://www.rpi.edu/")
+    (dict "@type" "ResearchOrganization" "name" "Rensselaer Artificial Intelligence and Reasoning Laboratory" "url" "https://rair.cogsci.rpi.edu/")
+    (dict "@type" "GovernmentOrganization" "name" "United States Naval Research Laboratory" "url" "https://www.nrl.navy.mil/")
+  )
+  "alumniOf" (dict "@type" "CollegeOrUniversity" "name" "University at Albany, State University of New York" "url" "https://www.albany.edu/")
+  "knowsAbout" (slice
+    "Artificial general intelligence"
+    "Automated reasoning"
+    "Automated planning"
+    "Cognitive architectures"
+    "Interactive theorem proving"
+    "Logic-based artificial intelligence"
+    "Machine learning"
+    "Modal logic"
+  )
+  "email" "mailto:jamesoswald111@gmail.com"
+  "contactPoint" (slice
+    (dict "@type" "ContactPoint" "contactType" "personal inquiries" "email" "jamesoswald111@gmail.com" "url" ("contact/" | absURL))
+    (dict "@type" "ContactPoint" "contactType" "university inquiries" "email" "oswalj@rpi.edu" "url" ("contact/" | absURL))
+  )
+-}}
+
+{{- $website := dict
+  "@type" "WebSite"
+  "@id" $websiteID
+  "url" $homeURL
+  "name" .Site.Title
+  "description" .Site.Params.description
+  "inLanguage" $language
+  "creator" $personRef
+  "publisher" $personRef
+  "copyrightHolder" $personRef
+-}}
+
+{{- $pageType := "WebPage" -}}
+{{- $isPersonPage := false -}}
+{{- if or .IsHome (in (slice "/about/" "/profiles/") .RelPermalink) -}}
+  {{- $pageType = "ProfilePage" -}}
+  {{- $isPersonPage = true -}}
+{{- else if eq .RelPermalink "/contact/" -}}
+  {{- $pageType = "ContactPage" -}}
+  {{- $isPersonPage = true -}}
+{{- else if or (in (slice "section" "taxonomy" "term") .Kind) (eq .RelPermalink "/publications/") -}}
+  {{- $pageType = "CollectionPage" -}}
+{{- end -}}
+
+{{- $page := dict
+  "@type" $pageType
+  "@id" $pageID
+  "url" $pageURL
+  "name" .Title
+  "description" $description
+  "inLanguage" $language
+  "isPartOf" $websiteRef
+  "copyrightHolder" $personRef
+-}}
+{{- if $isPersonPage -}}
+  {{- $page = merge (dict "about" $personRef "mainEntity" $personRef) $page -}}
+{{- end -}}
+
+{{- $graph := slice $person $website -}}
+
+{{- if and (eq .Section "posts") .IsPage -}}
+  {{- $articleID := printf "%s#article" $pageURL -}}
+  {{- $page = merge (dict "mainEntity" (dict "@id" $articleID)) $page -}}
+  {{- $article := dict
+    "@type" "BlogPosting"
+    "@id" $articleID
+    "url" $pageURL
+    "headline" .Title
+    "description" $description
+    "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")
+    "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+    "author" $personRef
+    "publisher" $personRef
+    "mainEntityOfPage" $pageRef
+    "isPartOf" $websiteRef
+    "inLanguage" $language
+    "wordCount" .WordCount
+  -}}
+  {{- with .Params.tags -}}
+    {{- $article = merge (dict "keywords" .) $article -}}
+  {{- end -}}
+  {{- $graph = $graph | append $article -}}
+{{- end -}}
+
+{{- if not .IsHome -}}
+  {{- $breadcrumbID := printf "%s#breadcrumb" $pageURL -}}
+  {{- $items := slice (dict "@type" "ListItem" "position" 1 "name" .Site.Title "item" $homeURL) -}}
+  {{- if and (eq .Section "posts") .IsPage -}}
+    {{- $items = $items | append (dict "@type" "ListItem" "position" 2 "name" "Blog" "item" ("posts/" | absURL)) -}}
+    {{- $items = $items | append (dict "@type" "ListItem" "position" 3 "name" .Title "item" $pageURL) -}}
+  {{- else -}}
+    {{- $items = $items | append (dict "@type" "ListItem" "position" 2 "name" .Title "item" $pageURL) -}}
+  {{- end -}}
+  {{- $breadcrumb := dict "@type" "BreadcrumbList" "@id" $breadcrumbID "itemListElement" $items -}}
+  {{- $page = merge (dict "breadcrumb" (dict "@id" $breadcrumbID)) $page -}}
+  {{- $graph = $graph | append $breadcrumb -}}
+{{- end -}}
+
+{{- $graph = $graph | append $page -}}
+{{- $schema := dict "@context" "https://schema.org" "@graph" $graph -}}
+<script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
