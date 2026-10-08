@@ -5,7 +5,7 @@ date = "2026-10-07"
 description = ""
 math = false
 tags = ["Lean4", "Programming"]
-series = []
+series = ["DefDel"]
 draft=false
 +++
 
