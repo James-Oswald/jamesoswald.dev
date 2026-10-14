@@ -1,7 +1,7 @@
 +++
 authors = ["James Oswald"]
-title = "def∇: inductive∇?!" 
-date = "2026-10-08"
+title = "def∇: An inductive∇ Macro" 
+date = "2026-10-14"
 description = ""
 math = false
 tags = ["Lean4", "Programming"]
